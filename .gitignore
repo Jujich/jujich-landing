@@ -11,3 +11,5 @@ dist
 .npm/
 coverage/
 research/
+output/
+tmp/

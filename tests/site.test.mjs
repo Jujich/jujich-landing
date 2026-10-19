@@ -23,8 +23,10 @@ test('public destinations use HTTPS and do not expose infrastructure', () => {
 })
 
 test('download and local assets are actual files in the declared formats', async () => {
-  const pdf = await readFile('public/kuzma-korolev-resume.pdf')
-  assert.equal(pdf.subarray(0, 5).toString(), '%PDF-')
+  const resumes = await Promise.all(['en', 'ru'].map(language => readFile(`public/kuzma-korolev-resume-${language}.pdf`)))
+  for (const pdf of resumes) assert.equal(pdf.subarray(0, 5).toString(), '%PDF-')
+  assert.notDeepEqual(resumes[0], resumes[1], 'Each language must have its own résumé')
+  assert.deepEqual(await readFile('public/kuzma-korolev-resume.pdf'), resumes[1], 'Previously shared résumé URL serves the current Russian PDF')
   const png = await readFile('public/assets/portrait.png')
   assert.equal(png.subarray(1, 4).toString(), 'PNG')
   for (const name of ['cyrillic', 'latin']) {
@@ -53,6 +55,15 @@ test('EN and RU dictionaries have matching keys and translated content', async (
   assert.ok(!/[А-Яа-яЁё]/.test(JSON.stringify(projectsData.en)))
   assert.ok(!/[А-Яа-яЁё]/.test(JSON.stringify(experienceData.en)))
   assert.equal(profileData.en.email, profileData.ru.email)
-  assert.deepEqual(portfolioLinksData.en.map(p => p.url), portfolioLinksData.ru.map(p => p.url))
   assert.deepEqual(projectsData.en.map(p => ({id:p.id,tags:p.tags,category:p.category,features:p.features.length})), projectsData.ru.map(p => ({id:p.id,tags:p.tags,category:p.category,features:p.features.length})))
+})
+
+test('English résumé omits CSM while the Russian résumé preserves it', () => {
+  const isCsmLink = link => /(^|\.)nncsm\.ru$/.test(new URL(link.url).hostname)
+  assert.ok(experienceData.ru.some(job => job.company === 'Нижегородский ЦСМ'))
+  assert.equal(portfolioLinksData.ru.filter(isCsmLink).length, 2)
+  assert.ok(!/CSM|ЦСМ|declarations of conformity/i.test(JSON.stringify(experienceData.en)))
+  assert.ok(!portfolioLinksData.en.some(isCsmLink))
+  assert.deepEqual(portfolioLinksData.en.map(p => p.url), portfolioLinksData.ru.filter(link => !isCsmLink(link)).map(p => p.url))
+  assert.equal(experienceData.en.length, experienceData.ru.length - 1)
 })

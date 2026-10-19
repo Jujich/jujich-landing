@@ -3,6 +3,7 @@ import { profileData, experienceData, skillsData, portfolioLinksData } from '~/d
 import { projectsData, experimentsData } from '~/data/projects'
 const { t, locale } = useI18n()
 const language = computed(() => locale.value === 'ru' ? 'ru' : 'en')
+const resumePath = computed(() => `/kuzma-korolev-resume-${language.value}.pdf`)
 const profile = computed(() => profileData[language.value])
 const experience = computed(() => experienceData[language.value])
 const skills = computed(() => skillsData[language.value])
@@ -55,7 +56,7 @@ useSeoMeta({
       <section class="hero wrap" aria-labelledby="hero-title">
         <div class="hero-topline"><span><i class="status-dot"></i> {{ t('hero.available') }}</span><span>{{ t('hero.location') }}</span></div>
         <div class="hero-layout">
-          <div class="hero-copy"><p class="eyebrow">{{ t('hero.eyebrow') }}</p><h1 id="hero-title">{{ t('hero.line1') }}<br>{{ t('hero.line2') }}<br><span>{{ t('hero.line3') }}</span><b>.</b></h1><p class="hero-description">{{ t('hero.description') }}</p><div class="hero-actions"><a class="button button-dark" href="#projects">{{ t('hero.projects') }} <span>↗</span></a><a class="text-link" href="/kuzma-korolev-resume.pdf" download>{{ t('hero.resume') }} <span>↓</span></a></div></div>
+          <div class="hero-copy"><p class="eyebrow">{{ t('hero.eyebrow') }}</p><h1 id="hero-title">{{ t('hero.line1') }}<br>{{ t('hero.line2') }}<br><span>{{ t('hero.line3') }}</span><b>.</b></h1><p class="hero-description">{{ t('hero.description') }}</p><div class="hero-actions"><a class="button button-dark" href="#projects">{{ t('hero.projects') }} <span>↗</span></a><a class="text-link" :href="resumePath" download>{{ t('hero.resume') }} <span>↓</span></a></div></div>
           <aside class="profile-card" :aria-label="t('hero.profileLabel')"><div class="profile-card-top"><span>{{ t('hero.profile') }}</span><span>01 / KK</span></div><div class="portrait-area"><span class="portrait-grid"></span><img src="/assets/portrait.png" :alt="profile.name" width="230" height="500" fetchpriority="high"><span class="portrait-sticker">hello,<br>world<span>↗</span></span><span class="portrait-code">&lt;developer /&gt;</span></div><div class="profile-card-bottom"><div><b>{{ profile.name }}</b><span>{{ t('hero.tagline') }}</span></div><a :href="profile.github" target="_blank" rel="noopener noreferrer" :aria-label="t('hero.github')">↗</a></div></aside>
         </div>
         <div class="hero-facts"><div><b>{{ t('hero.since') }}</b><span>{{ t('hero.commercial') }}</span></div><div><b>Frontend +</b><span>{{ t('hero.fullstack') }}</span></div><div><b>{{ t('hero.english') }}</b><span>{{ t('hero.englishNote') }}</span></div><a href="#projects" class="scroll-link">{{ t('hero.scroll') }} <span>↓</span></a></div>
@@ -75,6 +76,6 @@ useSeoMeta({
 
       <section class="contact-section" id="contact" aria-labelledby="contact-title"><div class="wrap"><div class="contact-top"><span class="eyebrow">{{ t('contact.eyebrow') }}</span><span><i class="status-dot"></i> {{ t('contact.hello') }}</span></div><div class="contact-main"><h2 id="contact-title">{{ t('contact.line1') }}<br><span class="serif">{{ t('contact.line2') }}</span></h2><a class="contact-arrow" :href="profile.telegram" target="_blank" rel="noopener noreferrer" :aria-label="t('contact.telegram')">↗</a></div><div class="contact-bottom"><a class="button button-dark" :href="profile.telegram" target="_blank" rel="noopener noreferrer">{{ t('contact.telegram') }} <span>↗</span></a><div class="email-group"><a :href="`mailto:${profile.email}`">{{ profile.email }}</a><button @click="copyEmail" :aria-label="copied ? t('contact.copied') : t('contact.copy')">{{ copied ? '✓' : '⧉' }}</button><span class="copy-feedback" role="status">{{ copied ? t('contact.copied') : copyError ? t('contact.copyError') : '' }}</span></div></div></div></section>
     </main>
-    <footer class="site-footer wrap"><a class="wordmark" href="#" :aria-label="t('nav.top')">jujich<span>dev</span><i></i></a><p>{{ profile.name }} · 2026</p><div><a :href="profile.github" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="/kuzma-korolev-resume.pdf" download>{{ t('hero.resume') }} ↓</a></div><span>{{ t('footer.made') }} <i>✳</i></span></footer>
+    <footer class="site-footer wrap"><a class="wordmark" href="#" :aria-label="t('nav.top')">jujich<span>dev</span><i></i></a><p>{{ profile.name }} · 2026</p><div><a :href="profile.github" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a :href="resumePath" download>{{ t('hero.resume') }} ↓</a></div><span>{{ t('footer.made') }} <i>✳</i></span></footer>
   </div>
 </template>

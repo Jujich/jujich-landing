@@ -110,11 +110,6 @@ export const experienceData: Record<'ru' | 'en', Experience[]> = {
       tags: ['Vue / Nuxt', 'React', 'NestJS', 'GitLab CI'], active: true
     },
     {
-      company: 'Nizhny Novgorod CSM', period: 'January — December 2025', title: 'Frontend developer',
-      description: 'Part of the team building a government information system for managing declarations of conformity. Pages and reusable components, data typing, form validation, SSR and API request proxying through Nitro.',
-      tags: ['Nuxt', 'TypeScript', 'Nuxt UI', 'Zod', 'Nitro'], active: false
-    },
-    {
       company: 'Codex IT', period: 'July — August 2025', title: 'Frontend developer · internship',
       description: 'An internal company messenger. Improvements to the interface, components, forms and application state in an existing codebase, with issue tracking and code review.',
       tags: ['React', 'TypeScript', 'MUI', 'Zustand'], active: false
@@ -139,9 +134,7 @@ export const portfolioLinksData: Record<'ru' | 'en', PortfolioLink[]> = {
     { name: 'Ultim AI', type: 'AI model aggregator', url: 'https://ultim-ai.ru' },
     { name: 'AI agents for business', type: 'OpenClaw-based startup', url: 'https://claw.jujichservices.ru' },
     { name: 'TastyWorld', type: 'POS system landing page', url: 'https://tastyworld.jujichservices.ru' },
-    { name: 'GOSTmarket', type: 'Technical standards store', url: 'https://gostmarket.pixelservices.ru' },
-    { name: 'Nizhny Novgorod CSM', type: 'Organization website', url: 'https://nncsm.ru' },
-    { name: 'CSM customer portal', type: 'Web application', url: 'https://lk.nncsm.ru' }
+    { name: 'GOSTmarket', type: 'Technical standards store', url: 'https://gostmarket.pixelservices.ru' }
   ]
 }
 
