@@ -27,7 +27,7 @@ test('download and local assets are actual files in the declared formats', async
   for (const pdf of resumes) assert.equal(pdf.subarray(0, 5).toString(), '%PDF-')
   assert.notDeepEqual(resumes[0], resumes[1], 'Each language must have its own résumé')
   assert.deepEqual(await readFile('public/kuzma-korolev-resume.pdf'), resumes[1], 'Previously shared résumé URL serves the current Russian PDF')
-  const png = await readFile('public/assets/portrait.png')
+  const png = await readFile('public/assets/portrait-upscaled.png')
   assert.equal(png.subarray(1, 4).toString(), 'PNG')
   for (const name of ['cyrillic', 'latin']) {
     const font = await readFile(`public/assets/fonts/manrope-${name}.woff2`)
