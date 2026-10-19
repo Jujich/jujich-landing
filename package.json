@@ -1,0 +1,25 @@
+{
+  "name": "jujich-landing",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "nuxt dev --host 127.0.0.1",
+    "build": "nuxt build",
+    "generate": "nuxt generate && node scripts/verify-output.mjs",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "test": "node --test tests/*.test.mjs",
+    "typecheck": "nuxt typecheck"
+  },
+  "engines": {
+    "node": ">=24.11.0"
+  },
+  "dependencies": {
+    "@nuxtjs/i18n": "^10.6.0",
+    "nuxt": "^4.2.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3",
+    "vue-tsc": "^3.1.1"
+  }
+}

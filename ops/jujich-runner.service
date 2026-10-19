@@ -1,0 +1,29 @@
+[Unit]
+Description=Project GitLab Runner for jujich.dev
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=jujich-deploy
+Group=jujich-deploy
+Environment=HOME=/var/lib/jujich-runner
+Environment=PATH=/opt/jujich/node/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+WorkingDirectory=/var/lib/jujich-runner
+ExecStart=/usr/bin/gitlab-runner run --config /var/lib/jujich-runner/config.toml --working-directory /var/lib/jujich-runner
+Restart=always
+RestartSec=5
+KillSignal=SIGQUIT
+TimeoutStopSec=120
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+ReadWritePaths=/var/lib/jujich-runner /var/www/jujich.dev
+UMask=0022
+
+[Install]
+WantedBy=multi-user.target
