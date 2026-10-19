@@ -22,6 +22,11 @@ if ! id jujich-deploy >/dev/null 2>&1; then
   useradd --system --create-home --home-dir /var/lib/jujich-runner --shell /bin/bash jujich-deploy
 fi
 install -d -m 755 -o jujich-deploy -g jujich-deploy /var/lib/jujich-runner /var/www/jujich.dev /var/www/jujich.dev/releases
+# Ubuntu's interactive clear_console logout hook breaks noninteractive shell jobs.
+if [[ -f /var/lib/jujich-runner/.bash_logout ]] && grep -q 'clear_console' /var/lib/jujich-runner/.bash_logout; then
+  mv /var/lib/jujich-runner/.bash_logout /var/lib/jujich-runner/.bash_logout.disabled-for-ci
+  install -m 644 -o jujich-deploy -g jujich-deploy /dev/null /var/lib/jujich-runner/.bash_logout
+fi
 install -d -m 755 /opt/jujich
 
 if [[ ! -x /opt/jujich/node/bin/node ]]; then
