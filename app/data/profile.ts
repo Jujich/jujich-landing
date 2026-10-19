@@ -46,8 +46,8 @@ const profileRu: Profile = {
 const experienceRu: Experience[] = [
   {
     company: 'Сбер', period: 'Июль 2026 — сейчас', title: 'Frontend-разработчик · стажировка',
-    description: 'Внешний проект по подбору мероприятий с помощью ИИ. Разработка веб-приложения на Next.js и Telegram Mini App на React, работа над макетами интерфейса с применением ИИ и подходом SDD.',
-    tags: ['React', 'Next.js', 'Telegram Mini Apps', 'SDD'], active: true
+    description: 'Внешний проект по подбору мероприятий с помощью ИИ. Разработка веб-приложения на Next.js и Telegram Mini App на React, работа над макетами интерфейса с применением ИИ и подходом SDD. С сентября 2026 года — frontend внутреннего автотрекера ключевых результатов руководителей высшего звена: Next.js, архитектура Feature-Sliced Design (FSD) и styled-components.',
+    tags: ['React', 'Next.js', 'Telegram Mini Apps', 'SDD', 'FSD', 'styled-components'], active: true
   },
   {
     company: 'Фриланс', period: 'Январь 2023 — сейчас', title: 'Fullstack-разработчик',
@@ -101,8 +101,8 @@ export const experienceData: Record<'ru' | 'en', Experience[]> = {
   en: [
     {
       company: 'Sber', period: 'July 2026 — present', title: 'Frontend developer · internship',
-      description: 'An external project for AI-assisted event discovery. Development of a Next.js web application and a React Telegram Mini App, with AI-assisted interface design and a specification-driven development approach.',
-      tags: ['React', 'Next.js', 'Telegram Mini Apps', 'SDD'], active: true
+      description: 'An external project for AI-assisted event discovery. Development of a Next.js web application and a React Telegram Mini App, with AI-assisted interface design and a specification-driven development approach. Since September 2026, frontend development for an internal automated key-results tracker for senior executives, using Next.js, Feature-Sliced Design (FSD) and styled-components. Within my first month on the internal project, I proposed and successfully implemented a migration to Vite, cutting build time from 15 to 5 minutes (3× faster).',
+      tags: ['React', 'Next.js', 'Telegram Mini Apps', 'SDD', 'FSD', 'styled-components', 'Vite'], active: true
     },
     {
       company: 'Freelance', period: 'January 2023 — present', title: 'Fullstack developer',

@@ -23,10 +23,17 @@ for (const [file, language, title, canonical] of [
     assert.equal(link[1], `/kuzma-korolev-resume-${locale}.pdf`, `${file}: résumé language`)
     assert.match(link[0], /\bdownload(?:[\s=>])/, `${file}: résumé download`)
   }
+  const experience = html.match(/<section[^>]*id="experience"[^>]*>([\s\S]*?)<\/section>/)?.[1]
+  assert.ok(experience, `${file}: experience section`)
+  assert.ok(experience.includes('Telegram Mini App') && experience.includes('Feature-Sliced Design (FSD)') && experience.includes('styled-components'), `${file}: both Sber projects and internal project stack`)
   if (locale === 'en') {
     assert.ok(!/Nizhny Novgorod CSM|CSM customer portal|ЦСМ|nncsm\.ru/.test(html), `${file}: CSM is omitted`)
+    assert.ok(experience.includes('Since September 2026') && experience.includes('internal automated key-results tracker for senior executives'), `${file}: internal Sber project`)
+    assert.ok(experience.includes('migration to Vite') && experience.includes('build time from 15 to 5 minutes (3× faster)'), `${file}: English Vite achievement`)
   } else {
     assert.ok(html.includes('Нижегородский ЦСМ') && html.includes('https://nncsm.ru') && html.includes('https://lk.nncsm.ru'), `${file}: CSM is preserved`)
+    assert.ok(experience.includes('С сентября 2026') && experience.includes('автотрекера ключевых результатов руководителей высшего звена'), `${file}: internal Sber project`)
+    assert.doesNotMatch(experience, /Vite|\b(?:15|5)\b|3[×x]/i, `${file}: Vite achievement excluded from Russian`)
   }
 }
 for (const asset of ['kuzma-korolev-resume-en.pdf', 'kuzma-korolev-resume-ru.pdf', 'assets/portrait.png', 'assets/og-cover.png', 'assets/og-cover-ru.png', 'assets/fonts/manrope-latin.woff2', 'assets/fonts/manrope-cyrillic.woff2', 'sitemap.xml', 'robots.txt']) {

@@ -70,10 +70,8 @@ COPY = {
         'languageText': 'English - C1, Advanced\nRussian - Native',
         'work': 'Selected projects', 'workNote': 'Web applications, services and mobile tools. More details and project context at jujich.dev.',
         'more': 'ALSO IN MY LAB', 'links': 'LIVE PORTFOLIO',
-        'approach': 'How I work',
-        'approachText': 'Requirements and architecture, reusable interfaces, typed APIs and deployment. I use AI tools with a specification-driven approach and verify the resulting implementation.',
         'jobs': {
-            'Sber': 'Develop a Next.js application and a React Telegram Mini App for AI-assisted event discovery. Work on interface designs using AI tools and specification-driven development.',
+            'Sber': 'Since September 2026: develop the frontend of an internal automated key results tracker for senior executives, using Next.js, Feature-Sliced Design (FSD) and styled-components.\nWithin my first month on this project, proposed and successfully implemented a migration to Vite, cutting build time from 15 to 5 minutes (3x faster).\nAlso worked on an AI-assisted event discovery application with Next.js and a React Telegram Mini App, using AI tools and specification-driven development.',
             'Freelance': 'Build commercial web applications and digital services. Handle client requirements, architecture, frontend and backend, deployment, maintenance and infrastructure.',
             'Codex IT': 'Contributed to an internal company messenger: UI components, forms and application state in an existing React codebase. Worked with issue tracking and code review.',
         },
@@ -98,10 +96,8 @@ COPY = {
         'languageText': 'Английский - C1, Advanced\nРусский - родной',
         'work': 'Избранные проекты', 'workNote': 'Веб-приложения, сервисы и мобильные инструменты. Подробности и контекст проектов - на jujich.dev/ru.',
         'more': 'ТАКЖЕ В МОЕЙ ЛАБОРАТОРИИ', 'links': 'ПОРТФОЛИО В СЕТИ',
-        'approach': 'Подход к работе',
-        'approachText': 'Требования и архитектура, переиспользуемые интерфейсы, типизированные API и деплой. Использую AI-инструменты и подход SDD с проверкой результата.',
         'jobs': {
-            'Сбер': 'Разрабатываю приложение на Next.js и Telegram Mini App на React для подбора мероприятий с помощью ИИ. Работаю с макетами интерфейса, AI-инструментами и подходом SDD.',
+            'Сбер': 'С сентября 2026 года разрабатываю frontend внутреннего автотрекера ключевых результатов руководителей высшего звена: Next.js, Feature-Sliced Design (FSD) и styled-components.\nТакже работал над приложением на Next.js и Telegram Mini App на React для подбора мероприятий с помощью ИИ, с макетами интерфейса, AI-инструментами и подходом SDD.',
             'Фриланс': 'Создаю коммерческие веб-приложения и цифровые сервисы. Веду полный цикл: требования заказчика, архитектура, frontend и backend, инфраструктура, деплой и поддержка.',
             'Нижегородский ЦСМ': 'В команде разработки государственной системы для работы с декларациями: страницы, компоненты, типизация, валидация форм, SSR и проксирование API через Nitro.',
             'Codex IT': 'Дорабатывал корпоративный мессенджер: компоненты интерфейса, формы и состояние приложения в существующей кодовой базе. Работал с трекером задач и code review.',
@@ -203,12 +199,6 @@ class Resume:
             y += 7
             y = self.para(self.copy['jobs'][job['company']], M, y, main_width, 10.1, 14)
             y += 17
-
-        # The English version has three roles, leaving room for a short working-style note.
-        if self.locale == 'en':
-            self.rule(y, width=main_width)
-            self.text(self.copy['approach'], M, y+15, 13, 'Serif')
-            self.para(self.copy['approachText'], M, y+37, main_width, 10, 14, MUTED)
 
         sx, sw = M + main_width + 25, CW - main_width - 25
         self.rect(sx-10, 300, sw+10, 473, PANEL, 7)
