@@ -7,13 +7,13 @@ const resumePath = computed(() => `/kuzma-korolev-resume-${language.value}.pdf`)
 const profile = computed(() => profileData[language.value])
 const experience = computed(() => experienceData[language.value])
 const skills = computed(() => skillsData[language.value])
-const portfolioLinks = computed(() => portfolioLinksData[language.value])
 const projects = computed(() => projectsData[language.value])
+const featuredProjects = computed(() => projects.value.filter(project => project.tier === 'featured'))
+const supportingProjects = computed(() => projects.value.filter(project => project.tier === 'supporting'))
+const landingProjects = computed(() => projects.value.filter(project => project.tier === 'landing'))
+const portfolioLinks = computed(() => portfolioLinksData[language.value].filter(link => !featuredProjects.value.some(project => project.url === link.url)))
 const experiments = computed(() => experimentsData[language.value])
 const i18nHead = useLocaleHead({ seo: true })
-const activeFilter = ref('all')
-const filters = ['all', 'web', 'services', 'mobile']
-const filteredProjects = computed(() => activeFilter.value === 'all' ? projects.value : projects.value.filter(project => project.category.includes(activeFilter.value)))
 const copied = ref(false)
 const copyError = ref(false)
 let copyTimer: ReturnType<typeof setTimeout> | undefined
@@ -62,11 +62,58 @@ useSeoMeta({
         <div class="hero-facts"><div><b>{{ t('hero.since') }}</b><span>{{ t('hero.commercial') }}</span></div><div><b>Frontend +</b><span>{{ t('hero.fullstack') }}</span></div><div><b>{{ t('hero.english') }}</b><span>{{ t('hero.englishNote') }}</span></div><a href="#projects" class="scroll-link">{{ t('hero.scroll') }} <span>↓</span></a></div>
       </section>
 
-      <section class="projects-section section-pad" id="projects" aria-labelledby="projects-title"><div class="wrap"><div class="section-heading"><div><p class="eyebrow"><span>01 /</span> {{ t('projects.eyebrow') }}</p><h2 id="projects-title">{{ t('projects.line1') }}<br><span class="serif">{{ t('projects.line2') }}</span></h2></div><p>{{ t('projects.description') }}</p></div><div class="project-filters" :aria-label="t('projects.filterLabel')"><button v-for="filter in filters" :key="filter" :class="{ active: activeFilter === filter }" :aria-pressed="activeFilter === filter" @click="activeFilter = filter">{{ t(`filters.${filter}`) }}<span v-if="filter === 'all'">{{ projects.length.toString().padStart(2, '0') }}</span></button><span class="project-count" aria-live="polite">{{ filteredProjects.length }} / {{ projects.length }}</span></div>
-        <div class="project-grid"><article v-for="project in filteredProjects" :key="project.id" class="project-card"><ProjectVisual :kind="project.id" /><div class="project-body"><div class="project-kicker"><span>{{ project.type }}</span><span>{{ project.status }}</span></div><h3>{{ project.name }}</h3><p>{{ project.description }}</p><ul class="tags" :aria-label="t('projects.technologies')"><li v-for="tag in project.tags" :key="tag">{{ tag }}</li></ul><details class="project-details"><summary>{{ t('projects.details') }} <span>+</span></summary><div class="project-details-content"><h4>{{ t('projects.task') }}</h4><p>{{ project.task }}</p><h4>{{ t('projects.features') }}</h4><ul><li v-for="feature in project.features" :key="feature">{{ feature }}</li></ul><p v-if="project.note" class="project-note">{{ project.note }}</p></div></details></div></article></div>
-        <div class="lab"><div class="lab-title"><span class="lab-icon">✳</span><div><p class="eyebrow">{{ t('projects.labEyebrow') }}</p><h3>{{ t('projects.labTitle') }}</h3></div></div><div class="lab-items"><article v-for="experiment in experiments" :key="experiment.name"><div><h4>{{ experiment.name }}</h4><span>{{ experiment.status }}</span></div><p>{{ experiment.description }}</p></article></div></div>
-        <details class="more-work"><summary>{{ t('projects.more') }} <span>{{ t('projects.openList') }} ↗</span></summary><div class="portfolio-links"><a v-for="link in portfolioLinks" :key="link.url" :href="link.url" target="_blank" rel="noopener noreferrer"><div><b>{{ link.name }}</b><span>{{ link.type }}</span></div><span>↗</span></a></div></details>
-      </div></section>
+      <section class="projects-section section-pad" id="projects" aria-labelledby="projects-title">
+        <div class="wrap">
+          <div class="section-heading project-heading">
+            <div><p class="eyebrow"><span>01 /</span> {{ t('projects.eyebrow') }}</p><h2 id="projects-title">{{ t('projects.line1') }}<br><span class="serif">{{ t('projects.line2') }}</span></h2></div>
+            <p>{{ t('projects.description') }}</p>
+          </div>
+          <div class="featured-heading"><span>{{ t('projects.featured') }}</span><span>{{ featuredProjects.length.toString().padStart(2, '0') }}</span></div>
+          <div class="project-grid">
+            <article v-for="project in featuredProjects" :id="`project-${project.id}`" :key="project.id" class="project-card">
+              <ProjectVisual :kind="project.id" />
+              <div class="project-body">
+                <div class="project-kicker"><span>{{ project.type }}</span><span>{{ project.status }}</span></div>
+                <h3><a v-if="project.url" :href="project.url" target="_blank" rel="noopener noreferrer" :aria-label="t('projects.visit', { name: project.name })">{{ project.name }} <span aria-hidden="true">↗</span></a><template v-else>{{ project.name }}</template></h3>
+                <p>{{ project.description }}</p>
+                <ul class="tags" :aria-label="t('projects.technologies')"><li v-for="tag in project.tags" :key="tag">{{ tag }}</li></ul>
+                <details class="project-details">
+                  <summary>{{ t('projects.details') }} <span aria-hidden="true">+</span></summary>
+                  <div class="project-details-content"><h4>{{ t('projects.task') }}</h4><p>{{ project.task }}</p><h4>{{ t('projects.features') }}</h4><ul><li v-for="feature in project.features" :key="feature">{{ feature }}</li></ul><p v-if="project.note" class="project-note">{{ project.note }}</p></div>
+                </details>
+              </div>
+            </article>
+          </div>
+
+          <section class="secondary-work" aria-labelledby="supporting-title">
+            <div class="secondary-heading"><p class="eyebrow">{{ t('projects.supportingEyebrow') }}</p><h3 id="supporting-title">{{ t('projects.supportingTitle') }}</h3></div>
+            <div class="supporting-grid">
+              <article v-for="project in supportingProjects" :id="`project-${project.id}`" :key="project.id" class="supporting-project">
+                <div class="supporting-meta"><span>{{ project.type }}</span><span>{{ project.status }}</span></div>
+                <h4>{{ project.name }}</h4><p>{{ project.description }}</p>
+                <details class="project-details">
+                  <summary>{{ t('projects.supportingDetails') }} <span aria-hidden="true">+</span></summary>
+                  <div class="project-details-content"><p>{{ project.task }}</p><ul><li v-for="feature in project.features" :key="feature">{{ feature }}</li></ul><p v-if="project.note" class="project-note">{{ project.note }}</p></div>
+                </details>
+              </article>
+            </div>
+          </section>
+
+          <section class="secondary-work lab-work" aria-labelledby="lab-title">
+            <div class="secondary-heading"><p class="eyebrow">{{ t('projects.labEyebrow') }}</p><h3 id="lab-title">{{ t('projects.labTitle') }}</h3></div>
+            <div class="lab-items"><article v-for="experiment in experiments" :key="experiment.name"><div><h4>{{ experiment.name }}</h4><span>{{ experiment.status }}</span></div><p>{{ experiment.description }}</p></article></div>
+          </section>
+
+          <section class="secondary-work websites-work" aria-labelledby="websites-title">
+            <div class="secondary-heading"><h3 id="websites-title">{{ t('projects.websitesTitle') }}</h3></div>
+            <div class="websites-copy">
+              <p>{{ t('projects.websitesDescription') }}</p>
+              <p v-for="project in landingProjects" :key="project.id" class="landing-mention"><span>{{ project.name }}</span> — {{ project.description }}</p>
+              <details class="more-work"><summary>{{ t('projects.more') }} <span>{{ t('projects.openList') }} ↗</span></summary><div class="portfolio-links"><a v-for="link in portfolioLinks" :key="link.url" :href="link.url" target="_blank" rel="noopener noreferrer"><div><b>{{ link.name }}</b><span>{{ link.type }}</span></div><span aria-hidden="true">↗</span></a></div></details>
+            </div>
+          </section>
+        </div>
+      </section>
 
       <section id="experience" class="experience-section section-pad wrap" aria-labelledby="experience-title"><div class="section-heading"><div><p class="eyebrow"><span>02 /</span> {{ t('experience.eyebrow') }}</p><h2 id="experience-title">{{ t('experience.line1') }}<br><span class="serif">{{ t('experience.line2') }}</span></h2></div><p>{{ t('experience.description') }}</p></div><div class="timeline"><article v-for="job in experience" :key="job.company" class="job"><div class="job-date"><span>{{ job.period }}</span><i :class="{ current: job.active }"></i></div><div class="job-name"><h3>{{ job.company }}</h3><p>{{ job.title }}</p></div><div class="job-content"><p>{{ job.description }}</p><ul class="tags"><li v-for="tag in job.tags" :key="tag">{{ tag }}</li></ul></div></article></div></section>
 

@@ -17,13 +17,13 @@
     "top": "Back to top"
   },
   "hero": {
-    "available": "Open to opportunities",
+    "available": "Open to employment opportunities",
     "location": "NIZHNY NOVGOROD · UTC+3",
-    "eyebrow": "KUZMA KOROLEV / FRONTEND & FULLSTACK",
-    "line1": "From interface",
+    "eyebrow": "KUZMA KOROLEV / FRONTEND DEVELOPER",
+    "line1": "From a concept",
     "line2": "to a working",
     "line3": "product",
-    "description": "I build web applications that solve business problems, combining care for the interface with an understanding of the systems behind it.",
+    "description": "I build web applications that solve business problems, combining care for the user experience with a deep understanding of the systems behind it.",
     "projects": "Explore projects",
     "resume": "Résumé PDF",
     "profileLabel": "About me at a glance",
@@ -41,22 +41,22 @@
     "eyebrow": "SELECTED WORK",
     "line1": "Code becomes",
     "line2": "a product.",
-    "description": "From learning platforms to subscription services and automation. The problems, architecture and implementation details behind each project.",
-    "filterLabel": "Filter projects",
+    "description": "Four of my best featured projects, from user workflows to implementation.",
     "technologies": "Technologies",
     "details": "Explore the case",
     "task": "The challenge",
     "features": "What's implemented",
-    "labEyebrow": "BEYOND THE MAIN PROJECTS",
-    "labTitle": "My laboratory",
-    "more": "More projects from my résumé",
-    "openList": "Explore the list"
-  },
-  "filters": {
-    "all": "All projects",
-    "web": "Web apps",
-    "services": "Services",
-    "mobile": "Mobile"
+    "labEyebrow": "EXPERIMENTS & TOOLING",
+    "labTitle": "Behind the scenes",
+    "more": "Other work online",
+    "openList": "Links",
+    "featured": "Featured projects",
+    "visit": "Visit {name}",
+    "supportingEyebrow": "OTHER APPLICATIONS",
+    "supportingTitle": "Mobile & web work",
+    "supportingDetails": "More details",
+    "websitesTitle": "Websites & other work",
+    "websitesDescription": "I also build landing pages and business websites with responsive layouts, content management, inquiry forms and integrations."
   },
   "experience": {
     "eyebrow": "PROFESSIONAL EXPERIENCE",
@@ -139,6 +139,15 @@
     "law3": "detail.",
     "consultation": "Get in touch",
     "connected": "CONNECTED",
-    "offline": "OFFLINE FIRST"
+    "offline": "OFFLINE FIRST",
+    "formaEditor": "AI EDITOR",
+    "formaPrompt": "Update the page headline",
+    "formaReply": "Done. Check the preview.",
+    "formaInput": "What shall we change?",
+    "formaPreview": "Preview",
+    "formaLine1": "Your next",
+    "formaLine2": "project.",
+    "formaButton": "Get started",
+    "formaHistory": "Version history"
   }
 }

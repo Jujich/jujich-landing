@@ -77,7 +77,7 @@ const skillsRu: SkillGroup[] = [
 const portfolioLinksRu: PortfolioLink[] = [
   { name: 'Академия Главного Бухгалтера', type: 'Веб-школа', url: 'https://academy-gb.ru' },
   { name: 'Finance Balance', type: 'Бухгалтерские услуги', url: 'https://finance-balance.ru' },
-  { name: 'Ultim AI', type: 'Агрегатор AI-моделей', url: 'https://ultim-ai.ru' },
+  { name: 'Ultim AI', type: 'MVP · Агрегатор AI-моделей', url: 'https://ultim-ai.ru' },
   { name: 'AI-агенты для бизнеса', type: 'Стартап на базе OpenClaw', url: 'https://claw.jujichservices.ru' },
   { name: 'TastyWorld', type: 'Лендинг POS-системы', url: 'https://tastyworld.jujichservices.ru' },
   { name: 'ГОСТмаркет', type: 'Магазин документации', url: 'https://gostmarket.pixelservices.ru' },
@@ -133,7 +133,7 @@ export const portfolioLinksData: Record<'ru' | 'en', PortfolioLink[]> = {
   en: [
     { name: 'Chief Accountant Academy', type: 'Online school', url: 'https://academy-gb.ru' },
     { name: 'Finance Balance', type: 'Accounting services', url: 'https://finance-balance.ru' },
-    { name: 'Ultim AI', type: 'AI model aggregator', url: 'https://ultim-ai.ru' },
+    { name: 'Ultim AI', type: 'MVP · AI model aggregator', url: 'https://ultim-ai.ru' },
     { name: 'AI agents for business', type: 'OpenClaw-based startup', url: 'https://claw.jujichservices.ru' },
     { name: 'TastyWorld', type: 'POS system landing page', url: 'https://tastyworld.jujichservices.ru' },
     { name: 'GOSTmarket', type: 'Technical standards store', url: 'https://gostmarket.pixelservices.ru' }

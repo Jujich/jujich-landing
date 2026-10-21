@@ -18,6 +18,16 @@ const { t } = useI18n()
     <template v-else-if="kind === 'vpn'">
       <div class="network-visual"><span class="network-node node-one">WEB</span><span class="network-node node-two">BOT</span><div class="network-center"><span>↗</span><b>VPN</b><small>{{ t('visual.connected') }}</small></div><span class="network-node node-three">API</span><span class="network-node node-four">ADMIN</span><i class="network-ring"></i></div>
     </template>
+    <template v-else-if="kind === 'forma'">
+      <div class="forma-window">
+        <div class="forma-toolbar"><b>forma<span>✳</span></b><span>CMS / AI EDITOR</span><i>◫</i></div>
+        <div class="forma-workspace">
+          <div class="forma-editor"><span class="mini-eyebrow">{{ t('visual.formaEditor') }}</span><div class="forma-message">{{ t('visual.formaPrompt') }}</div><div class="forma-reply"><b>✳</b><span>{{ t('visual.formaReply') }}</span></div><div class="forma-input"><span>{{ t('visual.formaInput') }}</span><b>↑</b></div></div>
+          <div class="forma-preview"><div class="forma-preview-bar"><span>{{ t('visual.formaPreview') }}</span><span>▱ &nbsp; ▯</span></div><div class="forma-preview-page"><span>YOUR BRAND</span><h4>{{ t('visual.formaLine1') }}<br><em>{{ t('visual.formaLine2') }}</em></h4><div class="forma-preview-button">{{ t('visual.formaButton') }} ↗</div><div class="forma-preview-blocks"><i></i><i></i><i></i></div></div></div>
+        </div>
+        <div class="forma-footer"><span>↶ &nbsp; {{ t('visual.formaHistory') }}</span><span>Nuxt / Next.js &nbsp; ↗</span></div>
+      </div>
+    </template>
     <template v-else-if="kind === 'medical'">
       <div class="medical-visual"><div class="medical-icon">+</div><span class="mini-eyebrow">{{ t('visual.medical') }}</span><h4>{{ t('visual.queue1') }}<br>{{ t('visual.queue2') }}</h4><div class="upload-row"><span>▧</span><div><b>{{ t('visual.study') }}</b><i></i></div><span>✓</span></div><small>Web · Android</small></div>
     </template>
