@@ -4,6 +4,7 @@ export interface Profile {
   email: string
   telegram: string
   github: string
+  linkedin: string
   location: string
   education: string
   degree: string
@@ -37,6 +38,7 @@ const profileRu: Profile = {
   email: 'kuzma.korolev.94@mail.ru',
   telegram: 'https://t.me/jujich',
   github: 'https://github.com/Jujich',
+  linkedin: 'https://www.linkedin.com/in/kuzma-korolev-105975441/',
   location: 'Нижний Новгород, Россия',
   education: 'ННГУ им. Н. И. Лобачевского',
   degree: 'ИИТММ · Программная инженерия',

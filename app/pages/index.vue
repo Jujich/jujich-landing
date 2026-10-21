@@ -31,7 +31,7 @@ useHead(() => ({
   htmlAttrs: i18nHead.value.htmlAttrs,
   link: i18nHead.value.link,
   meta: i18nHead.value.meta,
-  script: [{ type: 'application/ld+json', innerHTML: JSON.stringify({ '@context': 'https://schema.org', '@type': 'Person', name: profile.value.name, url: `https://jujich.dev${language.value === 'ru' ? '/ru' : '/'}`, jobTitle: t('meta.jobTitle'), sameAs: [profile.value.github, profile.value.telegram], knowsLanguage: ['ru', 'en'] }) }]
+  script: [{ type: 'application/ld+json', innerHTML: JSON.stringify({ '@context': 'https://schema.org', '@type': 'Person', name: profile.value.name, url: `https://jujich.dev${language.value === 'ru' ? '/ru' : '/'}`, jobTitle: t('meta.jobTitle'), sameAs: [profile.value.github, profile.value.linkedin, profile.value.telegram], knowsLanguage: ['ru', 'en'] }) }]
 }))
 useSeoMeta({
   title: () => t('meta.title'),
@@ -76,6 +76,6 @@ useSeoMeta({
 
       <section class="contact-section" id="contact" aria-labelledby="contact-title"><div class="wrap"><div class="contact-top"><span class="eyebrow">{{ t('contact.eyebrow') }}</span><span><i class="status-dot"></i> {{ t('contact.hello') }}</span></div><div class="contact-main"><h2 id="contact-title">{{ t('contact.line1') }}<br><span class="serif">{{ t('contact.line2') }}</span></h2><a class="contact-arrow" :href="profile.telegram" target="_blank" rel="noopener noreferrer" :aria-label="t('contact.telegram')">↗</a></div><div class="contact-bottom"><a class="button button-dark" :href="profile.telegram" target="_blank" rel="noopener noreferrer">{{ t('contact.telegram') }} <span>↗</span></a><div class="email-group"><a :href="`mailto:${profile.email}`">{{ profile.email }}</a><button @click="copyEmail" :aria-label="copied ? t('contact.copied') : t('contact.copy')">{{ copied ? '✓' : '⧉' }}</button><span class="copy-feedback" role="status">{{ copied ? t('contact.copied') : copyError ? t('contact.copyError') : '' }}</span></div></div></div></section>
     </main>
-    <footer class="site-footer wrap"><a class="wordmark" href="#" :aria-label="t('nav.top')">jujich<span>dev</span><i></i></a><p>{{ profile.name }} · 2026</p><div><a :href="profile.github" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a :href="resumePath" download>{{ t('hero.resume') }} ↓</a></div><span>{{ t('footer.made') }} <i>✳</i></span></footer>
+    <footer class="site-footer wrap"><a class="wordmark" href="#" :aria-label="t('nav.top')">jujich<span>dev</span><i></i></a><p>{{ profile.name }} · 2026</p><div><a :href="profile.github" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a :href="profile.linkedin" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a :href="resumePath" download>{{ t('hero.resume') }} ↓</a></div><span>{{ t('footer.made') }} <i>✳</i></span></footer>
   </div>
 </template>
