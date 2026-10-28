@@ -41,7 +41,7 @@
     "eyebrow": "SELECTED WORK",
     "line1": "Code becomes",
     "line2": "a product.",
-    "description": "Four of my best featured projects, from user workflows to implementation.",
+    "description": "Selected projects, from user workflows to implementation.",
     "technologies": "Technologies",
     "details": "Explore the case",
     "task": "The challenge",
@@ -148,6 +148,16 @@
     "formaLine1": "Your next",
     "formaLine2": "project.",
     "formaButton": "Get started",
-    "formaHistory": "Version history"
+    "formaHistory": "Version history",
+    "eventmatchCity": "Your city",
+    "eventmatchQuery": "What’s on this weekend?",
+    "eventmatchWeekend": "This weekend",
+    "eventmatchMusic": "Music",
+    "eventmatchArt": "Exhibitions",
+    "eventmatchSaturday": "Saturday",
+    "eventmatchSunday": "Sunday",
+    "eventmatchJazz": "An evening of jazz",
+    "eventmatchExhibition": "A new perspective",
+    "eventmatchCalendar": "Calendar"
   }
 }

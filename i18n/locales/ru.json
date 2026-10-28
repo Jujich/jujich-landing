@@ -41,7 +41,7 @@
     "eyebrow": "ИЗБРАННЫЕ РАБОТЫ",
     "line1": "Код становится",
     "line2": "продуктом.",
-    "description": "VPN-сервис, онлайн-школа, Forma CMS и CRM. Четыре основных проекта — от пользовательских сценариев до реализации.",
+    "description": "EventMatch, онлайн-школа, Forma CMS и CRM. Четыре основных проекта — от пользовательских сценариев до реализации.",
     "technologies": "Технологии",
     "details": "Разобрать проект",
     "task": "Задача",
@@ -148,6 +148,16 @@
     "formaLine1": "Ваш следующий",
     "formaLine2": "проект.",
     "formaButton": "Начать",
-    "formaHistory": "История версий"
+    "formaHistory": "История версий",
+    "eventmatchCity": "Ваш город",
+    "eventmatchQuery": "Куда сходить в выходные?",
+    "eventmatchWeekend": "В выходные",
+    "eventmatchMusic": "Музыка",
+    "eventmatchArt": "Выставки",
+    "eventmatchSaturday": "Суббота",
+    "eventmatchSunday": "Воскресенье",
+    "eventmatchJazz": "Джазовый вечер",
+    "eventmatchExhibition": "Новый взгляд",
+    "eventmatchCalendar": "Календарь"
   }
 }

@@ -64,6 +64,22 @@
 
 
 .school-window{top:-6px}
+.visual-eventmatch{background:#edddc9;color:#493626}
+.eventmatch-window{width:85%;max-width:450px;background:#fffdf8;border:1px solid #d9c3a8;border-radius:8px;box-shadow:0 14px 35px #74491f1c;transform:rotate(-3deg);overflow:hidden}
+.eventmatch-toolbar{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 13px;border-bottom:1px solid #eee4d7}
+.eventmatch-toolbar>b{font-size:14px;letter-spacing:-.5px}.eventmatch-toolbar>b>span{color:#c5723e;margin-right:3px}.eventmatch-toolbar>span{font-size:7px;color:#9a785a;white-space:nowrap}
+.eventmatch-content{padding:10px 12px}
+.eventmatch-search{display:flex;align-items:center;gap:7px;padding:8px 9px;background:#f6ecdf;border:1px solid #ead7bf;border-radius:5px}
+.eventmatch-search>span{color:#b46b3f;font-size:13px;line-height:1}.eventmatch-search>b{font-size:8px;font-weight:500;min-width:0}.eventmatch-search>.arrow-icon{margin-left:auto;font-size:11px;flex-shrink:0}
+.eventmatch-filters{display:flex;gap:5px;margin:8px 0}.eventmatch-filters>span{font-size:6px;padding:4px 7px;border:1px solid #e6d7c6;border-radius:20px;white-space:nowrap}.eventmatch-filters>span:first-child{background:#674a34;border-color:#674a34;color:#fff9ed}
+.eventmatch-cards{display:grid;grid-template-columns:1fr 1fr;gap:8px}.eventmatch-event{min-width:0;border:1px solid #e9ded1;border-radius:5px;overflow:hidden;background:#fff}
+.eventmatch-art{height:42px;position:relative;display:grid;place-items:center;overflow:hidden}.eventmatch-art>span{font:37px/1 var(--serif);position:relative;z-index:1}.eventmatch-art>b{position:absolute;right:5px;top:5px;width:15px;height:15px;display:grid;place-items:center;background:#fff9edc9;border-radius:50%;font-size:9px;color:#674a34;z-index:2}
+.eventmatch-art-music{background:#ca7950;color:#fce2bc}.eventmatch-art-music>i{position:absolute;width:94px;height:94px;border:1px solid #f8d6b466;border-radius:50%;left:10%;top:-28px;box-shadow:0 0 0 10px #f8d6b41a,0 0 0 20px #f8d6b412}.eventmatch-art-music>span{transform:rotate(-13deg)}
+.eventmatch-art-gallery{background:#c8d8d8;color:#3e6867}.eventmatch-art-gallery>i{position:absolute;width:34px;height:57px;background:#92b3b2;border-radius:20px 20px 0 0;transform:rotate(24deg);left:21%;top:8px}.eventmatch-art-gallery>span{transform:rotate(-25deg);margin-left:20px}
+.eventmatch-event-copy{padding:7px 8px 8px}.eventmatch-event-copy>span{font-size:5px;letter-spacing:.6px;text-transform:uppercase;color:#a07a58}.eventmatch-event-copy>h4{font-size:9px;line-height:1.35;font-weight:600;letter-spacing:-.2px;margin:3px 0}.eventmatch-event-copy>small{font-size:6px;color:#9b8b7b}
+.eventmatch-calendar{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:7px 12px;border-top:1px solid #eee4d7;background:#faf5ed;font-size:6px;color:#96785b}.eventmatch-calendar>span{white-space:nowrap}.eventmatch-calendar>div{display:flex;gap:4px}.eventmatch-calendar i,.eventmatch-calendar b{font-style:normal;font-weight:500;display:grid;place-items:center;width:16px;height:16px;border-radius:4px}.eventmatch-calendar b{background:#f0ddc1;color:#755035}
+@media(min-width:601px) and (max-width:800px){.eventmatch-window{width:91%}.eventmatch-toolbar{padding:8px 9px}.eventmatch-toolbar>b{font-size:12px}.eventmatch-toolbar>span{font-size:6px}.eventmatch-content{padding:8px}.eventmatch-search{padding:6px;gap:5px}.eventmatch-search>b{font-size:7px}.eventmatch-filters{gap:3px;margin:6px 0}.eventmatch-filters>span{padding:3px 5px;font-size:5px}.eventmatch-art{height:32px}.eventmatch-event-copy{padding:5px 6px}.eventmatch-event-copy>h4{font-size:8px}.eventmatch-calendar{padding:6px 8px;gap:4px}.eventmatch-calendar>div{gap:2px}.eventmatch-calendar i,.eventmatch-calendar b{width:13px;height:13px}}
+@media(max-width:600px){.eventmatch-window{width:88%}.eventmatch-toolbar{padding:10px 11px}.eventmatch-toolbar>span{font-size:6px}.eventmatch-content{padding:9px 10px}.eventmatch-search>b{font-size:8px}.eventmatch-calendar{padding:7px 10px}}
 .visual-forma{background:#e7def2;color:#3a2b4b}
 .forma-window{width:84%;max-width:450px;height:218px;background:#fcfaff;border:1px solid #d4c2e3;border-radius:7px;box-shadow:0 14px 35px #5f3a7d18;transform:rotate(-3deg);display:flex;flex-direction:column;overflow:hidden}
 .forma-toolbar{display:flex;align-items:center;gap:15px;padding:10px 13px;border-bottom:1px solid #e7deee}

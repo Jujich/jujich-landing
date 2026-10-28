@@ -55,7 +55,23 @@ test('EN and RU dictionaries have matching keys and translated content', async (
   assert.ok(!/[А-Яа-яЁё]/.test(JSON.stringify(projectsData.en)))
   assert.ok(!/[А-Яа-яЁё]/.test(JSON.stringify(experienceData.en)))
   assert.equal(profileData.en.email, profileData.ru.email)
-  assert.deepEqual(projectsData.en.map(p => ({id:p.id,tags:p.tags,category:p.category,features:p.features.length})), projectsData.ru.map(p => ({id:p.id,tags:p.tags,category:p.category,features:p.features.length})))
+  const sharedDetails = p => ({id:p.id,tags:p.tags,category:p.category,features:p.features.length})
+  assert.deepEqual(projectsData.en.filter(p => p.id !== 'vpn').map(sharedDetails), projectsData.ru.map(sharedDetails))
+})
+
+test('EventMatch is featured in both languages while the VPN case is English-only', async () => {
+  for (const language of ['en', 'ru']) {
+    const eventmatch = projectsData[language].find(p => p.id === 'eventmatch')
+    assert.ok(eventmatch, `${language}: EventMatch case exists`)
+    assert.equal(eventmatch.name, 'EventMatch')
+    assert.equal(eventmatch.tier, 'featured')
+  }
+  assert.deepEqual(projectsData.ru.filter(p => p.tier === 'featured').map(p => p.id), ['eventmatch', 'school', 'forma', 'crm'])
+  assert.deepEqual(projectsData.en.filter(p => p.tier === 'featured').map(p => p.id), ['vpn', 'eventmatch', 'school', 'forma', 'crm'])
+  assert.equal(projectsData.en.find(p => p.id === 'vpn')?.name, 'Jujich Services')
+  assert.doesNotMatch(JSON.stringify(projectsData.ru), /VPN|Jujich\s*Services/i)
+  const ru = JSON.parse(await readFile('i18n/locales/ru.json', 'utf8'))
+  assert.doesNotMatch(ru.projects.description, /VPN|Jujich\s*Services/i)
 })
 
 test('English résumé omits CSM while the Russian résumé preserves it', () => {

@@ -17,6 +17,14 @@ for (const [file, language, title, canonical] of [
   assert.ok(!/glpat-[\w-]+|BEGIN (?:RSA |OPENSSH )?PRIVATE KEY|192\.168\.98\./.test(html), `${file}: secrets`)
   assert.equal((html.match(/<h1\b/g) || []).length, 1, `${file}: heading`)
   const locale = language.slice(0, 2)
+  assert.match(html, /id="project-eventmatch"/, `${file}: EventMatch case`)
+  assert.ok(html.includes('EventMatch'), `${file}: EventMatch name`)
+  if (locale === 'en') {
+    assert.match(html, /id="project-vpn"/, `${file}: VPN case is preserved`)
+    assert.ok(html.includes('Jujich Services'), `${file}: Jujich Services name`)
+  } else {
+    assert.doesNotMatch(html, /id="project-vpn"|Jujich\s+Services|\bVPN\b/i, `${file}: VPN case is omitted`)
+  }
   const resumeLinks = [...html.matchAll(/<a\b[^>]*href="([^"]+\.pdf)"[^>]*>/g)]
   assert.equal(resumeLinks.length, 2, `${file}: résumé links in hero and footer`)
   for (const link of resumeLinks) {

@@ -12,6 +12,20 @@ const { t } = useI18n()
         <div class="mini-lessons"><span>01 &nbsp; {{ t('visual.lesson1') }} <b>✓</b></span><span>02 &nbsp; {{ t('visual.lesson2') }} <b><ArrowIcon direction="right" /></b></span></div>
       </div>
     </template>
+    <template v-else-if="kind === 'eventmatch'">
+      <div class="eventmatch-window">
+        <div class="eventmatch-toolbar"><b><span>✳</span> EventMatch</b><span>◎ {{ t('visual.eventmatchCity') }}</span></div>
+        <div class="eventmatch-content">
+          <div class="eventmatch-search"><span>✦</span><b>{{ t('visual.eventmatchQuery') }}</b><ArrowIcon /></div>
+          <div class="eventmatch-filters"><span>{{ t('visual.eventmatchWeekend') }}</span><span>{{ t('visual.eventmatchMusic') }}</span><span>{{ t('visual.eventmatchArt') }}</span></div>
+          <div class="eventmatch-cards">
+            <div class="eventmatch-event"><div class="eventmatch-art eventmatch-art-music"><i></i><span>♪</span><b>♡</b></div><div class="eventmatch-event-copy"><span>{{ t('visual.eventmatchSaturday') }}</span><h4>{{ t('visual.eventmatchJazz') }}</h4><small>{{ t('visual.eventmatchMusic') }} · 19:00</small></div></div>
+            <div class="eventmatch-event"><div class="eventmatch-art eventmatch-art-gallery"><i></i><span>◒</span><b>♥</b></div><div class="eventmatch-event-copy"><span>{{ t('visual.eventmatchSunday') }}</span><h4>{{ t('visual.eventmatchExhibition') }}</h4><small>{{ t('visual.eventmatchArt') }} · 12:00</small></div></div>
+          </div>
+        </div>
+        <div class="eventmatch-calendar"><span>▦ {{ t('visual.eventmatchCalendar') }}</span><div><i>16</i><i>17</i><i>18</i><i>19</i><i>20</i><b>21</b><b>22</b></div></div>
+      </div>
+    </template>
     <template v-else-if="kind === 'crm'">
       <div class="mini-window crm-window"><aside><b>r.</b><i>◫</i><i>▥</i><i>◎</i><i>⚙</i></aside><div class="crm-body"><div class="mini-top"><b>{{ t('visual.workspace') }}</b><span class="tiny-avatar">KK</span></div><div class="mini-tabs">{{ t('visual.overview') }} &nbsp;&nbsp; <b>{{ t('visual.kanban') }}</b> &nbsp;&nbsp; {{ t('visual.team') }}</div><div class="kanban"><div><span>{{ t('visual.todo') }} <em>2</em></span><article><i></i><b>{{ t('visual.newProject') }}</b><small>{{ t('visual.requirements') }}</small><footer>◷ {{ t('visual.today') }} <u>K</u></footer></article><article><i></i><b>{{ t('visual.approve') }}</b><small>{{ t('visual.design') }}</small></article></div><div><span>{{ t('visual.inProgress') }} <em>1</em></span><article><i></i><b>{{ t('visual.account') }}</b><small>Frontend</small><footer><span><ArrowIcon /> {{ t('visual.high') }}</span> <u>K</u></footer></article></div><div><span>{{ t('visual.done') }} <em>1</em></span><article><i></i><b>{{ t('visual.api') }}</b><small>{{ t('visual.integration') }}</small><footer>✓ {{ t('visual.completed') }}</footer></article></div></div></div></div>
     </template>

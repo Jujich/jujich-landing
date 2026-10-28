@@ -21,12 +21,12 @@ export interface Experiment {
 
 const projectsRu: Project[] = [
   {
-    id: 'vpn', tier: 'featured', name: 'Jujich Services', type: 'Подписки / Telegram', status: 'Разработка и эксплуатация', category: ['services', 'web'],
-    description: 'VPN-сервис с web-интерфейсом, Telegram Mini App, ботом и административной панелью. Весь путь от подключения до управления подпиской.',
-    tags: ['Nuxt 4', 'Pinia', 'NestJS', 'Python', 'Grafana'],
-    task: 'Сделать подключение понятным для пользователя, а управление подписками и инфраструктурой — прозрачным для администратора.',
-    features: ['Подписки, баланс, заявки на пополнение и объединение аккаунтов.', 'Инструкции для разных устройств и QR-коды подключения.', 'Административные таблицы с восстановлением фильтров и состояния.', 'Мониторинг с различением нулевых показателей и отсутствующих данных.', 'Контейнеризация, GitLab CI и наблюдаемость через Prometheus, Grafana и Loki.'],
-    note: 'Пополнение баланса — через заявку администратору.'
+    id: 'eventmatch', tier: 'featured', name: 'EventMatch', type: 'Мероприятия / AI / Web', status: 'Реализовано', category: ['web'],
+    description: 'Поиск мероприятий по интересам: от каталога с фильтрами и календарём до AI-подборок по запросу на обычном языке. Избранное и сохранённые поиски помогают вернуться к планам.',
+    tags: ['React 19', 'Next.js 16', 'TypeScript', 'SWR', 'Tailwind CSS'],
+    task: 'Помочь человеку найти подходящее событие среди разрозненных афиш и сохранить контекст поиска при переходах между каталогом, карточкой и личными подборками.',
+    features: ['Каталог с фильтрами по городу, датам, категориям и цене; карточки и календарь.', 'AI-поиск с ожиданием готовности подборки, переносом условий в фильтры и возможностью их уточнить.', 'Фильтры в URL, сохранённые поиски и восстановление прокрутки при возврате из карточки.', 'Избранное с оптимистичным обновлением и вход по email-коду без потери текущего действия.', 'Ролевая модерация мероприятий, управление источниками и экспорт события в календарь.'],
+    note: 'Командный проект. Веб-клиент с SSR интегрирован с API; отдельные сервисы отвечают за сбор событий, AI-обогащение и устранение дублей.'
   },
   {
     id: 'school', tier: 'featured', name: 'Платформа онлайн-обучения', type: 'EdTech / Web', status: 'Реализовано', category: ['web'],
@@ -93,6 +93,14 @@ export const projectsData: Record<'ru' | 'en', Project[]> = {
       task: 'Make setup straightforward for users and give administrators clear control over subscriptions and infrastructure.',
       features: ['Subscriptions, balances, top-up requests and account merging.', 'Device-specific instructions and connection QR codes.', 'Admin tables that preserve filters and state.', 'Monitoring that distinguishes zero values from missing data.', 'Containerization, GitLab CI and observability with Prometheus, Grafana and Loki.'],
       note: 'Balance top-ups are requested through an administrator.'
+    },
+    {
+      id: 'eventmatch', tier: 'featured', name: 'EventMatch', type: 'Events / AI / Web', status: 'Implemented', category: ['web'],
+      description: 'Event discovery by interest: from a filtered catalog and calendar to AI collections built from natural-language queries. Favorites and saved searches make it easy to return to plans.',
+      tags: ['React 19', 'Next.js 16', 'TypeScript', 'SWR', 'Tailwind CSS'],
+      task: 'Help people find relevant events across scattered listings while preserving search context between the catalog, event details and personal collections.',
+      features: ['A catalog filtered by city, date, category and price, with card and calendar views.', 'AI search with collection progress, extracted filters and controls to refine them.', 'URL-based filters, saved searches and scroll restoration when returning from event details.', 'Favorites with optimistic updates and email-code sign-in that resumes the interrupted action.', 'Role-based event moderation, source management and calendar export.'],
+      note: 'A team project. The SSR web client integrates with the API; separate services handle event collection, AI enrichment and deduplication.'
     },
     {
       id: 'school', tier: 'featured', name: 'Online learning platform', type: 'EdTech / Web', status: 'Implemented', category: ['web'],

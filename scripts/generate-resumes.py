@@ -76,6 +76,8 @@ COPY = {
             'Codex IT': 'Contributed to an internal company messenger: UI components, forms and application state in an existing React codebase. Worked with issue tracking and code review.',
         },
         'projects': {
+            'eventmatch': 'Event discovery with filters, a calendar, AI search, favorites and moderation. A React / Next.js interface with URL-based filters and role-based access.',
+            'forma': 'Local CMS MVP with manual and AI editing, desktop/mobile previews, version history and starter exports for Nuxt and Next.',
             'school': 'Role-based student, tutor and admin areas; a drag-and-drop course editor, HLS video and assignments. Multipart S3 uploads with progress tracking and retries.',
             'crm': 'Leads, deals, kanban and team tasks with company data isolation. CRM imports and an MCP interface with OAuth and scoped permissions for AI agents.',
             'vpn': 'Web interface, Telegram Mini App, bot and admin panel for VPN subscriptions. Account management, device setup and monitoring with Prometheus, Grafana and Loki.',
@@ -83,7 +85,7 @@ COPY = {
             'mafia': 'Host dashboard for in-person games: roles, night actions, voting and a recoverable timer. A local Android game engine with an offline queue and one-way synchronization.',
             'legal': 'Editable services and pricing with CMS publishing through GitLab CI. Enquiries are queued and delivered independently to a CRM and Telegram, with retries and deduplication.',
         },
-        'lab': 'Forma: local MVP of a CMS with an AI editor, preview and starter export. AI agent infrastructure: Linux deployments of the third-party Hermes Agent with systemd and a Telegram gateway.',
+        'lab': 'Ultim AI: an AI model aggregator MVP. AI agents for business: instructions, tool integrations and workflows tailored to company needs.',
         'footer': 'Frontend / Fullstack',
     },
     'ru': {
@@ -103,14 +105,15 @@ COPY = {
             'Codex IT': 'Дорабатывал корпоративный мессенджер: компоненты интерфейса, формы и состояние приложения в существующей кодовой базе. Работал с трекером задач и code review.',
         },
         'projects': {
+            'eventmatch': 'Каталог мероприятий с фильтрами, календарём, AI-поиском, избранным и модерацией. Интерфейс на React / Next.js, фильтры в URL и доступ по ролям.',
+            'forma': 'Локальный MVP CMS: ручное и AI-редактирование, предпросмотр на desktop и mobile, история версий и экспорт стартовых проектов Nuxt и Next.',
             'school': 'Кабинеты ученика, куратора и администратора; редактор курсов с drag-and-drop, HLS-видео и домашние задания. Multipart-загрузка в S3 с прогрессом и повторами.',
             'crm': 'Лиды, сделки, канбан и командные задачи с изоляцией данных компаний. Импорт из CRM и MCP-интерфейс с OAuth и уровнями разрешений для AI-агентов.',
-            'vpn': 'Web-интерфейс, Telegram Mini App, бот и админ-панель VPN-подписок. Управление аккаунтами, инструкции подключения и мониторинг через Prometheus, Grafana и Loki.',
             'medical': 'Сбор изображений и очередь отправки: IndexedDB в web, SQLite и WorkManager на Android. Данные переживают перезапуск; удалённая отправка требует сквозной проверки.',
             'mafia': 'Панель ведущего очной игры: роли, ночные действия, голосование и таймер. Локальный игровой движок на Android, очередь и однонаправленная синхронизация.',
             'legal': 'Редактируемые услуги и тарифы, CMS с публикацией через GitLab CI. Очередь заявок с независимой доставкой в CRM и Telegram, повторами и дедупликацией.',
         },
-        'lab': 'Forma: локальный MVP CMS с AI-редактором, предпросмотром и экспортом starters. Инфраструктура AI-агентов: Linux-развёртывания стороннего Hermes Agent с systemd и Telegram gateway.',
+        'lab': 'Ultim AI: MVP агрегатора AI-моделей. ИИ-агенты для бизнеса: инструкции, подключение инструментов и сценарии под рабочие процессы компании.',
         'footer': 'Frontend / Fullstack',
     },
 }
@@ -235,13 +238,13 @@ class Resume:
             self.text(f'{i:02}', M+6, y+7, 9, 'Bold')
             x = M+36
             self.text(project['name'], x, y, 12.5, 'Bold')
-            y += 20
-            self.text(' / '.join(project['tags']) + '  |  ' + project['status'], x, y, 8.1, color=MUTED)
             y += 17
-            y = self.para(self.copy['projects'][project['id']], x, y, CW-36, 10.1, 13.7)
-            y += 9
+            self.text(' / '.join(project['tags']) + '  |  ' + project['status'], x, y, 8.1, color=MUTED)
+            y += 12
+            y = self.para(self.copy['projects'][project['id']], x, y, CW-36, 9.4, 12.4)
+            y += 4
             self.rule(y)
-            y += 10
+            y += 6
 
         self.text(self.copy['more'], M, y, 8.2, 'Bold', MUTED)
         y = self.para(self.copy['lab'], M, y+18, CW, 9.4, 13.2)
