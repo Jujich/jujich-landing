@@ -77,6 +77,7 @@ useSeoMeta({
                 <h3><a v-if="project.url" :href="project.url" target="_blank" rel="noopener noreferrer" :aria-label="t('projects.visit', { name: project.name })">{{ project.name }} <span aria-hidden="true"><ArrowIcon /></span></a><template v-else>{{ project.name }}</template></h3>
                 <p>{{ project.description }}</p>
                 <ul class="tags" :aria-label="t('projects.technologies')"><li v-for="tag in project.tags" :key="tag">{{ tag }}</li></ul>
+                <a v-if="project.repositoryUrl" class="text-link project-repository" :href="project.repositoryUrl" target="_blank" rel="noopener noreferrer" :aria-label="t('projects.repositoryLabel', { name: project.name })">{{ t('projects.repository') }} <span aria-hidden="true"><ArrowIcon /></span></a>
                 <details class="project-details">
                   <summary>{{ t('projects.details') }} <span aria-hidden="true">+</span></summary>
                   <div class="project-details-content"><h4>{{ t('projects.task') }}</h4><p>{{ project.task }}</p><h4>{{ t('projects.features') }}</h4><ul><li v-for="feature in project.features" :key="feature">{{ feature }}</li></ul><p v-if="project.note" class="project-note">{{ project.note }}</p></div>
@@ -91,6 +92,7 @@ useSeoMeta({
               <article v-for="project in supportingProjects" :id="`project-${project.id}`" :key="project.id" class="supporting-project">
                 <div class="supporting-meta"><span>{{ project.type }}</span><span>{{ project.status }}</span></div>
                 <h4>{{ project.name }}</h4><p>{{ project.description }}</p>
+                <a v-if="project.repositoryUrl" class="text-link project-repository" :href="project.repositoryUrl" target="_blank" rel="noopener noreferrer" :aria-label="t('projects.repositoryLabel', { name: project.name })">{{ t('projects.repository') }} <span aria-hidden="true"><ArrowIcon /></span></a>
                 <details class="project-details">
                   <summary>{{ t('projects.supportingDetails') }} <span aria-hidden="true">+</span></summary>
                   <div class="project-details-content"><p>{{ project.task }}</p><ul><li v-for="feature in project.features" :key="feature">{{ feature }}</li></ul><p v-if="project.note" class="project-note">{{ project.note }}</p></div>
@@ -123,6 +125,6 @@ useSeoMeta({
 
       <section class="contact-section" id="contact" aria-labelledby="contact-title"><div class="wrap"><div class="contact-top"><span class="eyebrow">{{ t('contact.eyebrow') }}</span><span><i class="status-dot"></i> {{ t('contact.hello') }}</span></div><div class="contact-main"><h2 id="contact-title">{{ t('contact.line1') }}<br><span class="serif">{{ t('contact.line2') }}</span></h2><a class="contact-arrow" :href="profile.linkedin" target="_blank" rel="noopener noreferrer" :aria-label="t('contact.linkedin')"><ArrowIcon /></a></div><div class="contact-bottom"><a class="button button-dark" :href="profile.linkedin" target="_blank" rel="noopener noreferrer">{{ t('contact.linkedin') }} <span><ArrowIcon /></span></a><div class="email-group"><a :href="`mailto:${profile.email}`">{{ profile.email }}</a><button @click="copyEmail" :aria-label="copied ? t('contact.copied') : t('contact.copy')">{{ copied ? '✓' : '⧉' }}</button><span class="copy-feedback" role="status">{{ copied ? t('contact.copied') : copyError ? t('contact.copyError') : '' }}</span></div></div></div></section>
     </main>
-    <footer class="site-footer wrap"><a class="wordmark" href="#" :aria-label="t('nav.top')">jujich<span>dev</span><i></i></a><p>{{ profile.name }} · 2026</p><div><a :href="profile.github" target="_blank" rel="noopener noreferrer">GitHub <ArrowIcon /></a><a :href="profile.linkedin" target="_blank" rel="noopener noreferrer">LinkedIn <ArrowIcon /></a><a :href="resumePath" download>{{ t('hero.resume') }} <ArrowIcon direction="down" /></a></div><span>{{ t('footer.made') }} <i>✳</i></span></footer>
+    <footer class="site-footer wrap"><a class="wordmark" href="#" :aria-label="t('nav.top')">jujich<span>dev</span><i></i></a><p>{{ profile.name }} · 2026</p><div><a :href="profile.github" target="_blank" rel="noopener noreferrer">GitHub <ArrowIcon /></a><a href="https://github.com/Jujich/jujich-landing" target="_blank" rel="noopener noreferrer" :aria-label="t('footer.sourceLabel')">{{ t('footer.source') }} <ArrowIcon /></a><a :href="profile.linkedin" target="_blank" rel="noopener noreferrer">LinkedIn <ArrowIcon /></a><a :href="resumePath" download>{{ t('hero.resume') }} <ArrowIcon direction="down" /></a></div><span>{{ t('footer.made') }} <i>✳</i></span></footer>
   </div>
 </template>

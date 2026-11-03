@@ -52,6 +52,8 @@
     "openList": "Ссылки",
     "featured": "Основные проекты",
     "visit": "Открыть проект «{name}»",
+    "repository": "Код на GitHub",
+    "repositoryLabel": "Код на GitHub: {name}",
     "supportingEyebrow": "ДРУГИЕ ПРИЛОЖЕНИЯ",
     "supportingTitle": "Мобильный и веб-опыт",
     "supportingDetails": "Подробнее",
@@ -96,6 +98,8 @@
     "copyError": "Скопируйте адрес вручную"
   },
   "footer": {
+    "source": "Код сайта",
+    "sourceLabel": "Код сайта jujich.dev на GitHub",
     "made": "Сделано на Nuxt"
   },
   "visual": {

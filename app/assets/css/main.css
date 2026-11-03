@@ -24,6 +24,9 @@
 .project-body{display:flex;flex-direction:column;flex:1}
 .project-body>.tags{margin-bottom:23px}
 .project-body>.project-details{margin-top:auto}
+.project-repository{align-self:flex-start;gap:9px;margin-bottom:20px}
+.supporting-project>.project-repository{margin:13px 0 0}
+.site-footer>div{flex-wrap:wrap;row-gap:12px}
 .featured-heading{display:flex;justify-content:space-between;border-top:1px solid var(--line);padding:18px 0 23px;font-size:10px;letter-spacing:1.4px;text-transform:uppercase;color:#626a58}
 .featured-heading>span:last-child{font-family:monospace;letter-spacing:0}
 .project-body h3 a{display:flex;justify-content:space-between;align-items:baseline;gap:16px}

@@ -52,6 +52,8 @@
     "openList": "Links",
     "featured": "Featured projects",
     "visit": "Visit {name}",
+    "repository": "View code on GitHub",
+    "repositoryLabel": "View code on GitHub: {name}",
     "supportingEyebrow": "OTHER APPLICATIONS",
     "supportingTitle": "Mobile & web work",
     "supportingDetails": "More details",
@@ -96,6 +98,8 @@
     "copyError": "Please copy the address manually"
   },
   "footer": {
+    "source": "Site source",
+    "sourceLabel": "Site source for jujich.dev on GitHub",
     "made": "Built with Nuxt"
   },
   "visual": {

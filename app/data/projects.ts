@@ -11,6 +11,7 @@ export interface Project {
   features: string[]
   note?: string
   url?: string
+  repositoryUrl?: string
 }
 
 export interface Experiment {
@@ -31,6 +32,7 @@ const projectsRu: Project[] = [
   {
     id: 'school', tier: 'featured', name: 'Платформа онлайн-обучения', type: 'EdTech / Web', status: 'Реализовано', category: ['web'],
     url: 'https://academy-gb.ru',
+    repositoryUrl: 'https://github.com/Jujich/project-school',
     description: 'От каталога курсов до кабинетов ученика и куратора. Видео, домашние задания и управление программой обучения в одном продукте.',
     tags: ['Nuxt 3', 'TypeScript', 'NestJS', 'S3', 'HLS'],
     task: 'Связать покупку доступа, учебные материалы и работу куратора в последовательный пользовательский сценарий.',
@@ -47,6 +49,7 @@ const projectsRu: Project[] = [
   },
   {
     id: 'crm', tier: 'featured', name: 'CRM для управления продажами', type: 'B2B / Web', status: 'MVP', category: ['web'],
+    repositoryUrl: 'https://github.com/Jujich/CRM',
     description: 'Лиды, сделки, канбан и командные задачи. От привычного рабочего пространства до интеграции с AI-агентами через MCP.',
     tags: ['Nuxt 4', 'NestJS', 'PostgreSQL', 'MCP / OAuth'],
     task: 'Объединить продажи и командную работу с разграничением данных и прав между компаниями.',
@@ -63,6 +66,7 @@ const projectsRu: Project[] = [
   },
   {
     id: 'mafia', tier: 'supporting', name: 'Панель ведущего «Мафии»', type: 'Web / Android', status: 'Реализовано', category: ['mobile', 'web'],
+    repositoryUrl: 'https://github.com/Jujich/project-mafia',
     description: 'Инструмент для ведущего очной игры: роли, ночные действия, голосование и история. Android-версия работает без постоянного подключения к сети.',
     tags: ['Nuxt 3', 'Capacitor', 'NestJS', 'Offline-first'],
     task: 'Помочь ведущему проводить игру по сложным правилам и сохранять состояние даже при нестабильном интернете.',
@@ -105,6 +109,7 @@ export const projectsData: Record<'ru' | 'en', Project[]> = {
     {
       id: 'school', tier: 'featured', name: 'Online learning platform', type: 'EdTech / Web', status: 'Implemented', category: ['web'],
       url: 'https://academy-gb.ru',
+      repositoryUrl: 'https://github.com/Jujich/project-school',
       description: 'From a course catalog to student and tutor dashboards. Video, assignments and course management in one product.',
       tags: ['Nuxt 3', 'TypeScript', 'NestJS', 'S3', 'HLS'],
       task: 'Connect course access purchases, learning materials and tutor support in a coherent user journey.',
@@ -121,6 +126,7 @@ export const projectsData: Record<'ru' | 'en', Project[]> = {
     },
     {
       id: 'crm', tier: 'featured', name: 'Sales management CRM', type: 'B2B / Web', status: 'MVP', category: ['web'],
+      repositoryUrl: 'https://github.com/Jujich/CRM',
       description: 'Leads, deals, kanban and team tasks. A familiar workspace with MCP integration for AI agents.',
       tags: ['Nuxt 4', 'NestJS', 'PostgreSQL', 'MCP / OAuth'],
       task: 'Bring sales and teamwork together while keeping each company’s data and permissions separate.',
@@ -137,6 +143,7 @@ export const projectsData: Record<'ru' | 'en', Project[]> = {
     },
     {
       id: 'mafia', tier: 'supporting', name: 'Mafia game host dashboard', type: 'Web / Android', status: 'Implemented', category: ['mobile', 'web'],
+      repositoryUrl: 'https://github.com/Jujich/project-mafia',
       description: 'A tool for hosting in-person games: roles, night actions, voting and history. The Android version works without a continuous internet connection.',
       tags: ['Nuxt 3', 'Capacitor', 'NestJS', 'Offline-first'],
       task: 'Help hosts run games with complex rules and preserve game state even with an unreliable connection.',
