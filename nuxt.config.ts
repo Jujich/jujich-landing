@@ -21,7 +21,7 @@ export default defineNuxtConfig({
         { property: 'og:type', content: 'website' },
         { name: 'twitter:card', content: 'summary_large_image' }
       ],
-      link: [{ rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }]
+      link: [{ rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg?v=k-olive' }]
     }
   },
   nitro: { prerender: { crawlLinks: true, routes: ['/', '/ru'] } },
