@@ -15,7 +15,7 @@ test('project data has stable unique ids and usable case details', () => {
 
 test('public destinations use HTTPS and do not expose infrastructure', () => {
   for (const url of [profile.github, profile.telegram, ...portfolioLinks.map(p => p.url)]) {
-    const parsed = new URL(url)
+    const parsed = new URL(url, 'https://jujich.dev')
     assert.equal(parsed.protocol, 'https:')
     assert.ok(!parsed.username && !parsed.password)
     assert.ok(!/^(localhost|127\.|192\.168\.|10\.)/.test(parsed.hostname))
@@ -75,7 +75,7 @@ test('EventMatch is featured in both languages while the VPN case is English-onl
 })
 
 test('English résumé omits CSM while the Russian résumé preserves it', () => {
-  const isCsmLink = link => /(^|\.)nncsm\.ru$/.test(new URL(link.url).hostname)
+  const isCsmLink = link => /(^|\.)nncsm\.ru$/.test(new URL(link.url, 'https://jujich.dev').hostname)
   assert.ok(experienceData.ru.some(job => job.company === 'Нижегородский ЦСМ'))
   assert.equal(portfolioLinksData.ru.filter(isCsmLink).length, 2)
   assert.ok(!/CSM|ЦСМ|declarations of conformity/i.test(JSON.stringify(experienceData.en)))
@@ -96,8 +96,8 @@ test('Sber preserves both projects and includes the Vite achievement only in Eng
     assert.match(job.description, /styled-components/)
     for (const tag of ['React', 'Next.js', 'Telegram Mini Apps', 'SDD', 'FSD', 'styled-components']) assert.ok(job.tags.includes(tag))
   }
-  assert.match(ru.description, /С сентября 2026.*внутреннего автотрекера ключевых результатов руководителей высшего звена/)
-  assert.match(en.description, /Since September 2026.*internal automated key-results tracker for senior executives/)
+  assert.match(ru.description, /С сентября 2026.*«Автотрекинг целей B2B\+».*«Поток»/)
+  assert.match(en.description, /Since September 2026.*B2B\+ goal-tracking module in POTOK/)
   assert.match(ru.description, /подбору мероприятий с помощью ИИ/)
   assert.match(en.description, /AI-assisted event discovery/)
   assert.equal(ru.period, 'Июль 2026 — сейчас')

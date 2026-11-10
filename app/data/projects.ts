@@ -74,7 +74,8 @@ const projectsRu: Project[] = [
     note: 'Приложение для ведущего очной игры. Синхронизация однонаправленная, без совместного редактирования.'
   },
   {
-    id: 'legal', tier: 'landing', name: 'B2B-лендинг с CMS', type: 'Сайт / Интеграции', status: 'Реализовано', category: ['services'],
+    id: 'legal', tier: 'landing', name: 'ЮрПом B2B', type: 'Сайт / Интеграции', status: 'Реализовано', category: ['services'],
+    url: 'https://urpom-b2b.ru',
     description: 'Лендинг юридических услуг: редактируемый контент и заявки в CRM и Telegram.',
     tags: ['Nuxt 4', 'CMS'],
     task: 'Представить услуги и принимать заявки.',
@@ -83,7 +84,7 @@ const projectsRu: Project[] = [
 ]
 
 const experimentsRu: Experiment[] = [
-  { name: 'Ultim AI', status: 'MVP', description: 'Агрегатор AI-моделей с единым веб-интерфейсом для работы с нейросетями. Проект не нашёл клиентов.' },
+  { name: 'Поток', status: 'Сбер · Frontend-разработка', description: 'Внутренняя платформа Сбера для совместной работы. Участвовал в развитии раздела «Автотрекинг целей B2B+»: реализовал валидацию комментариев к ключевым результатам, дорабатывал дашборд руководителя, декомпозировал компоненты и внедрял светлую и тёмную темы. Стек: React, Next.js, TypeScript, FSD.' },
   { name: 'ИИ-агенты для бизнеса', status: 'Настройка и интеграции', description: 'Настройка ИИ-агентов под задачи компании: работа с информацией, обработка запросов и автоматизация повседневных процессов. Подготовка инструкций, подключение нужных инструментов и адаптация сценариев под рабочие процессы команды.' }
 ]
 
@@ -151,7 +152,8 @@ export const projectsData: Record<'ru' | 'en', Project[]> = {
       note: 'Built for the host of an in-person game. Synchronization is one-way, without collaborative editing.'
     },
     {
-      id: 'legal', tier: 'landing', name: 'B2B landing page with a CMS', type: 'Website / Integrations', status: 'Implemented', category: ['services'],
+      id: 'legal', tier: 'landing', name: 'UrPom B2B', type: 'Website / Integrations', status: 'Implemented', category: ['services'],
+      url: 'https://urpom-b2b.ru',
       description: 'A legal services landing page with editable content and inquiries delivered to CRM and Telegram.',
       tags: ['Nuxt 4', 'CMS'],
       task: 'Present services and collect inquiries.',
@@ -163,7 +165,7 @@ export const projectsData: Record<'ru' | 'en', Project[]> = {
 export const experimentsData: Record<'ru' | 'en', Experiment[]> = {
   ru: experimentsRu,
   en: [
-    { name: 'Ultim AI', status: 'MVP', description: 'An AI model aggregator with a shared web interface for working with AI models. The project did not find customers.' },
+    { name: 'POTOK', status: 'Sber · Frontend development', description: 'Sber’s internal collaboration platform. Contributed to the B2B+ goal-tracking module: implemented key-result comment validation, refined the manager dashboard, decomposed components and introduced light and dark themes. Stack: React, Next.js, TypeScript, FSD.' },
     { name: 'AI agents for business', status: 'Configuration & integrations', description: 'Configuring AI agents for company needs, from working with information and handling requests to automating everyday tasks. Defining instructions, connecting the right tools and tailoring workflows to how the team works.' }
   ]
 }

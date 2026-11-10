@@ -38,11 +38,11 @@ for (const [file, language, title, canonical] of [
   assert.ok(experience.includes('Telegram Mini App') && experience.includes('Feature-Sliced Design (FSD)') && experience.includes('styled-components'), `${file}: both Sber projects and internal project stack`)
   if (locale === 'en') {
     assert.ok(!/Nizhny Novgorod CSM|CSM customer portal|ЦСМ|nncsm\.ru/.test(html), `${file}: CSM is omitted`)
-    assert.ok(experience.includes('Since September 2026') && experience.includes('internal automated key-results tracker for senior executives'), `${file}: internal Sber project`)
+    assert.ok(experience.includes('Since September 2026') && experience.includes('B2B+ goal-tracking module in POTOK'), `${file}: internal Sber project`)
     assert.ok(experience.includes('migration to Vite') && experience.includes('build time from 15 to 5 minutes (3× faster)'), `${file}: English Vite achievement`)
   } else {
     assert.ok(html.includes('Нижегородский ЦСМ') && html.includes('https://nncsm.ru') && html.includes('https://lk.nncsm.ru'), `${file}: CSM is preserved`)
-    assert.ok(experience.includes('С сентября 2026') && experience.includes('автотрекера ключевых результатов руководителей высшего звена'), `${file}: internal Sber project`)
+    assert.ok(experience.includes('С сентября 2026') && experience.includes('«Автотрекинг целей B2B+»') && experience.includes('«Поток»'), `${file}: internal Sber project`)
     assert.doesNotMatch(experience, /Vite|\b(?:15|5)\b|3[×x]/i, `${file}: Vite achievement excluded from Russian`)
   }
 }

@@ -71,7 +71,7 @@ COPY = {
         'work': 'Selected projects', 'workNote': 'Web applications, services and mobile tools. More details and project context at jujich.dev.',
         'more': 'ALSO IN MY LAB', 'links': 'LIVE PORTFOLIO',
         'jobs': {
-            'Sber': 'Since September 2026: develop the frontend of an internal automated key results tracker for senior executives, using Next.js, Feature-Sliced Design (FSD) and styled-components.\nWithin my first month on this project, proposed and successfully implemented a migration to Vite, cutting build time from 15 to 5 minutes (3x faster).\nAlso worked on an AI-assisted event discovery application with Next.js and a React Telegram Mini App, using AI tools and specification-driven development.',
+            'Sber': 'Since September 2026: frontend development for POTOK’s B2B+ goal-tracking module at Sber with Next.js, Feature-Sliced Design (FSD) and styled-components. Typed API integration for comment validation, dashboard card improvements, component decomposition and light/dark themes.\nAlso worked on EventMatch: AI-assisted event discovery with Next.js, a React Telegram Mini App, AI tools and specification-driven development.\nWithin my first month on the internal project, proposed and successfully implemented a migration to Vite, cutting build time from 15 to 5 minutes (3x faster).',
             'Freelance': 'Build commercial web applications and digital services. Handle client requirements, architecture, frontend and backend, deployment, maintenance and infrastructure.',
             'Codex IT': 'Contributed to an internal company messenger: UI components, forms and application state in an existing React codebase. Worked with issue tracking and code review.',
         },
@@ -85,7 +85,7 @@ COPY = {
             'mafia': 'Host dashboard for in-person games: roles, night actions, voting and a recoverable timer. A local Android game engine with an offline queue and one-way synchronization.',
             'legal': 'Editable services and pricing with CMS publishing through GitLab CI. Enquiries are queued and delivered independently to a CRM and Telegram, with retries and deduplication.',
         },
-        'lab': 'Ultim AI: an AI model aggregator MVP. AI agents for business: instructions, tool integrations and workflows tailored to company needs.',
+        'lab': 'POTOK: goal-tracking frontend for Sber’s internal platform. AI agents for business: instructions, tool integrations and workflows tailored to company needs.',
         'footer': 'Frontend / Fullstack',
     },
     'ru': {
@@ -99,7 +99,7 @@ COPY = {
         'work': 'Избранные проекты', 'workNote': 'Веб-приложения, сервисы и мобильные инструменты. Подробности и контекст проектов - на jujich.dev/ru.',
         'more': 'ТАКЖЕ В МОЕЙ ЛАБОРАТОРИИ', 'links': 'ПОРТФОЛИО В СЕТИ',
         'jobs': {
-            'Сбер': 'С сентября 2026 года разрабатываю frontend внутреннего автотрекера ключевых результатов руководителей высшего звена: Next.js, Feature-Sliced Design (FSD) и styled-components.\nТакже работал над приложением на Next.js и Telegram Mini App на React для подбора мероприятий с помощью ИИ, с макетами интерфейса, AI-инструментами и подходом SDD.',
+            'Сбер': 'С сентября 2026 — frontend раздела «Автотрекинг целей B2B+» платформы «Поток»: Next.js, Feature-Sliced Design (FSD), styled-components. Валидация комментариев через типизированный API, доработка карточек дашборда, декомпозиция компонентов, светлая и тёмная темы.\nТакже работал над EventMatch: Next.js и Telegram Mini App на React для подбора мероприятий с ИИ, с AI-инструментами и подходом SDD.',
             'Фриланс': 'Создаю коммерческие веб-приложения и цифровые сервисы. Веду полный цикл: требования заказчика, архитектура, frontend и backend, инфраструктура, деплой и поддержка.',
             'Нижегородский ЦСМ': 'В команде разработки государственной системы для работы с декларациями: страницы, компоненты, типизация, валидация форм, SSR и проксирование API через Nitro.',
             'Codex IT': 'Дорабатывал корпоративный мессенджер: компоненты интерфейса, формы и состояние приложения в существующей кодовой базе. Работал с трекером задач и code review.',
@@ -113,7 +113,7 @@ COPY = {
             'mafia': 'Панель ведущего очной игры: роли, ночные действия, голосование и таймер. Локальный игровой движок на Android, очередь и однонаправленная синхронизация.',
             'legal': 'Редактируемые услуги и тарифы, CMS с публикацией через GitLab CI. Очередь заявок с независимой доставкой в CRM и Telegram, повторами и дедупликацией.',
         },
-        'lab': 'Ultim AI: MVP агрегатора AI-моделей. ИИ-агенты для бизнеса: инструкции, подключение инструментов и сценарии под рабочие процессы компании.',
+        'lab': 'Поток: frontend автотрекинга целей во внутренней платформе Сбера. ИИ-агенты для бизнеса: инструкции, подключение инструментов и сценарии под рабочие процессы компании.',
         'footer': 'Frontend / Fullstack',
     },
 }
@@ -252,9 +252,10 @@ class Resume:
         self.text(self.copy['links'], M, y, 8.2, 'Bold', MUTED)
         links = DATA['portfolioLinksData'][self.locale]
         # Select live links from the résumé; the full list remains on the website.
-        selected = [p for p in links if p['url'] in ['https://academy-gb.ru', 'https://finance-balance.ru', 'https://ultim-ai.ru']]
+        selected = [p for p in links if p['url'] in ['https://academy-gb.ru', 'https://finance-balance.ru', '#experience']]
+        selected = [{**p, 'url': 'https://jujich.dev' + ('/ru' if self.locale == 'ru' else '/') + '#experience', 'label': p['name']} if p['url'] == '#experience' else p for p in selected]
         selected.append({'name': 'jujich.dev', 'url': 'https://jujich.dev' + ('/ru' if self.locale == 'ru' else '/')})
-        markup = ' &nbsp; / &nbsp; '.join(f'<link href="{escape(p["url"])}" color="#22251f"><u>{escape(p["url"].replace("https://", "").rstrip("/"))}</u></link>' for p in selected)
+        markup = ' &nbsp; / &nbsp; '.join(f'<link href="{escape(p["url"])}" color="#22251f"><u>{escape(p.get("label", p["url"].replace("https://", "").rstrip("/")))}</u></link>' for p in selected)
         self.para(markup, M, y+17, CW, 9.2, 13.5, markup=True)
         self.c.showPage()
 

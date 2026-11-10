@@ -48,7 +48,7 @@ const profileRu: Profile = {
 const experienceRu: Experience[] = [
   {
     company: 'Сбер', period: 'Июль 2026 — сейчас', title: 'Frontend-разработчик · стажировка',
-    description: 'Внешний проект по подбору мероприятий с помощью ИИ. Разработка веб-приложения на Next.js и Telegram Mini App на React, работа над макетами интерфейса с применением ИИ и подходом SDD. С сентября 2026 года — frontend внутреннего автотрекера ключевых результатов руководителей высшего звена: Next.js, архитектура Feature-Sliced Design (FSD) и styled-components.',
+    description: 'С сентября 2026 года разрабатываю frontend раздела «Автотрекинг целей B2B+» внутренней платформы «Поток»: Next.js, Feature-Sliced Design (FSD) и styled-components. Реализовал валидацию комментариев к ключевым результатам через типизированный API, участвовал в развитии дашборда руководителя. Декомпозировал компоненты, доработал светлую и тёмную темы и адаптировал интерфейс под глобальный сайдбар. Также работал над проектом по подбору мероприятий с помощью ИИ: веб-приложение на Next.js и Telegram Mini App на React, AI-инструменты и SDD.',
     tags: ['React', 'Next.js', 'Telegram Mini Apps', 'SDD', 'FSD', 'styled-components'], active: true
   },
   {
@@ -77,10 +77,10 @@ const skillsRu: SkillGroup[] = [
 const portfolioLinksRu: PortfolioLink[] = [
   { name: 'Академия Главного Бухгалтера', type: 'Веб-школа', url: 'https://academy-gb.ru' },
   { name: 'Finance Balance', type: 'Бухгалтерские услуги', url: 'https://finance-balance.ru' },
-  { name: 'Ultim AI', type: 'MVP · Агрегатор AI-моделей', url: 'https://ultim-ai.ru' },
+  { name: 'Поток', type: 'Сбер · Автотрекинг целей', url: '#experience' },
   { name: 'AI-агенты для бизнеса', type: 'Стартап на базе OpenClaw', url: 'https://claw.jujichservices.ru' },
   { name: 'TastyWorld', type: 'Лендинг POS-системы', url: 'https://tastyworld.jujichservices.ru' },
-  { name: 'ГОСТмаркет', type: 'Магазин документации', url: 'https://gostmarket.pixelservices.ru' },
+  { name: 'ЮрПом B2B', type: 'Юридические услуги · Лендинг с CMS', url: 'https://urpom-b2b.ru' },
   { name: 'Нижегородский ЦСМ', type: 'Сайт организации', url: 'https://nncsm.ru' },
   { name: 'Личный кабинет ЦСМ', type: 'Веб-приложение', url: 'https://lk.nncsm.ru' }
 ]
@@ -103,7 +103,7 @@ export const experienceData: Record<'ru' | 'en', Experience[]> = {
   en: [
     {
       company: 'Sber', period: 'July 2026 — present', title: 'Junior Frontend Developer',
-      description: 'An external project for AI-assisted event discovery. Development of a Next.js web application and a React Telegram Mini App, with AI-assisted interface design and a specification-driven development approach. Since September 2026, frontend development for an internal automated key-results tracker for senior executives, using Next.js, Feature-Sliced Design (FSD) and styled-components. Within my first month on the internal project, I proposed and successfully implemented a migration to Vite, cutting build time from 15 to 5 minutes (3× faster).',
+      description: 'Since September 2026, frontend development for the B2B+ goal-tracking module in POTOK, Sber’s internal platform, using Next.js, Feature-Sliced Design (FSD) and styled-components. Implemented key-result comment validation through a typed API and contributed to the manager dashboard. Decomposed components, refined light and dark themes and adapted the interface to a global sidebar. Also worked on AI-assisted event discovery: a Next.js web application and a React Telegram Mini App, using AI tools and specification-driven development. Within my first month on the internal project, I proposed and successfully implemented a migration to Vite, cutting build time from 15 to 5 minutes (3× faster).',
       tags: ['React', 'Next.js', 'Telegram Mini Apps', 'SDD', 'FSD', 'styled-components', 'Vite'], active: true
     },
     {
@@ -133,10 +133,10 @@ export const portfolioLinksData: Record<'ru' | 'en', PortfolioLink[]> = {
   en: [
     { name: 'Chief Accountant Academy', type: 'Online school', url: 'https://academy-gb.ru' },
     { name: 'Finance Balance', type: 'Accounting services', url: 'https://finance-balance.ru' },
-    { name: 'Ultim AI', type: 'MVP · AI model aggregator', url: 'https://ultim-ai.ru' },
+    { name: 'POTOK', type: 'Sber · Goal tracking', url: '#experience' },
     { name: 'AI agents for business', type: 'OpenClaw-based startup', url: 'https://claw.jujichservices.ru' },
     { name: 'TastyWorld', type: 'POS system landing page', url: 'https://tastyworld.jujichservices.ru' },
-    { name: 'GOSTmarket', type: 'Technical standards store', url: 'https://gostmarket.pixelservices.ru' }
+    { name: 'UrPom B2B', type: 'Legal services · Landing page with CMS', url: 'https://urpom-b2b.ru' }
   ]
 }
 
