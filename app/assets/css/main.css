@@ -299,9 +299,6 @@ html.scrolled .site-header{height:var(--hs);margin-bottom:calc(var(--hh) - var(-
 .websites-top .sub-head{grid-column:1 / span 6}
 .websites-top .sub-head h3{font-size:clamp(44px,5.4vw,84px);line-height:.9;letter-spacing:-.06em}
 .websites-top .sub-head h3 em{font-style:normal;color:var(--soft)}
-.websites-intro{grid-column:8 / -1;display:grid;gap:14px;font-size:13px;line-height:1.7;color:var(--muted)}
-.landing-mention{padding:14px 16px;border-radius:14px;background:var(--paper-2);color:var(--text)}
-.landing-mention span{color:var(--ink);font-weight:600}
 .site-list{display:grid;gap:clamp(18px,2.4vw,34px);padding-top:24px}
 .site-row{display:grid;grid-template-columns:auto auto auto;grid-template-areas:"num name arrow" ". meta meta";column-gap:18px;row-gap:6px;align-items:baseline;width:max-content;max-width:100%}
 .site-l{justify-self:start;margin-left:var(--ml,0)}
@@ -770,11 +767,9 @@ html.menu-open .menu-btn span:nth-child(3){transform:translateY(-6.6px) rotate(-
 .locale-ru .contact-main h2{font-size:clamp(68px,11.8vw,180px)}
 .portfolio [id^="project-"]{scroll-margin-top:90px}
 @media(min-width:861px){.experience-heading{font-size:clamp(64px,9vw,144px)}}
-@media(max-width:1180px){.websites-intro{grid-column:7 / -1}}
 @media(max-width:860px){
   .scatter h2 .st{grid-column:1 / -1;grid-row:auto;justify-self:start}
   .scatter h2 .st-soft{justify-self:end}
-  .websites-intro{grid-column:1 / -1}
   .websites-top .sub-head{grid-column:1 / -1}
   .locale-ru .st{font-size:clamp(44px,9vw,76px)}
 }
