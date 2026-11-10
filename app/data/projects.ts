@@ -32,7 +32,6 @@ const projectsRu: Project[] = [
   {
     id: 'school', tier: 'featured', name: 'Платформа онлайн-обучения', type: 'EdTech / Web', status: 'Реализовано', category: ['web'],
     url: 'https://academy-gb.ru',
-    repositoryUrl: 'https://github.com/Jujich/project-school',
     description: 'От каталога курсов до кабинетов ученика и куратора. Видео, домашние задания и управление программой обучения в одном продукте.',
     tags: ['Nuxt 3', 'TypeScript', 'NestJS', 'S3', 'HLS'],
     task: 'Связать покупку доступа, учебные материалы и работу куратора в последовательный пользовательский сценарий.',
@@ -110,7 +109,6 @@ export const projectsData: Record<'ru' | 'en', Project[]> = {
     {
       id: 'school', tier: 'featured', name: 'Online learning platform', type: 'EdTech / Web', status: 'Implemented', category: ['web'],
       url: 'https://academy-gb.ru',
-      repositoryUrl: 'https://github.com/Jujich/project-school',
       description: 'From a course catalog to student and tutor dashboards. Video, assignments and course management in one product.',
       tags: ['Nuxt 3', 'TypeScript', 'NestJS', 'S3', 'HLS'],
       task: 'Connect course access purchases, learning materials and tutor support in a coherent user journey.',
