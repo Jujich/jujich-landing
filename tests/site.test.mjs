@@ -103,7 +103,7 @@ test('Sber preserves both projects and includes the Vite achievement only in Eng
   assert.equal(ru.period, 'Июль 2026 — сейчас')
   assert.equal(en.period, 'July 2026 — present')
   assert.match(ru.title, /стажировка/)
-  assert.match(en.title, /internship/)
+  assert.equal(en.title, 'Junior Frontend Developer')
   assert.match(en.description, /first month on the internal project.*proposed and successfully implemented a migration to Vite/)
   assert.match(en.description, /build time from 15 to 5 minutes \(3× faster\)/)
   assert.ok(en.tags.includes('Vite'))
