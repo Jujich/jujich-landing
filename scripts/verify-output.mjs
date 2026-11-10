@@ -4,8 +4,8 @@ import { join } from 'node:path'
 
 const root = '.output/public'
 for (const [file, language, title, canonical] of [
-  ['index.html', 'en-US', 'From interface', 'https://jujich.dev/'],
-  ['ru/index.html', 'ru-RU', 'От интерфейса', 'https://jujich.dev/ru']
+  ['index.html', 'en-US', 'From a concept', 'https://jujich.dev/'],
+  ['ru/index.html', 'ru-RU', 'От идеи', 'https://jujich.dev/ru']
 ]) {
   const html = await readFile(join(root, file), 'utf8')
   assert.ok(html.includes(`lang="${language}"`), `${file}: lang`)
@@ -15,6 +15,8 @@ for (const [file, language, title, canonical] of [
   assert.equal(new URL(canonicalMatch[1]).href, new URL(canonical).href, `${file}: canonical`)
   assert.ok(html.includes('hreflang="en-US"') && html.includes('hreflang="ru-RU"'), `${file}: hreflang`)
   assert.ok(!/glpat-[\w-]+|BEGIN (?:RSA |OPENSSH )?PRIVATE KEY|192\.168\.98\./.test(html), `${file}: secrets`)
+  assert.ok(html.includes('mailto:korolev.kuzma1@gmail.com'), `${file}: current contact email`)
+  assert.ok(html.includes('/assets/redesign/portrait.webp'), `${file}: redesign portrait`)
   assert.equal((html.match(/<h1\b/g) || []).length, 1, `${file}: heading`)
   const locale = language.slice(0, 2)
   assert.match(html, /id="project-eventmatch"/, `${file}: EventMatch case`)
@@ -44,7 +46,7 @@ for (const [file, language, title, canonical] of [
     assert.doesNotMatch(experience, /Vite|\b(?:15|5)\b|3[×x]/i, `${file}: Vite achievement excluded from Russian`)
   }
 }
-for (const asset of ['kuzma-korolev-resume-en.pdf', 'kuzma-korolev-resume-ru.pdf', 'assets/portrait-upscaled.png', 'assets/og-cover.png', 'assets/og-cover-ru.png', 'assets/fonts/manrope-latin.woff2', 'assets/fonts/manrope-cyrillic.woff2', 'sitemap.xml', 'robots.txt']) {
+for (const asset of ['kuzma-korolev-resume-en.pdf', 'kuzma-korolev-resume-ru.pdf', 'assets/portrait-upscaled.png', 'assets/redesign/portrait.webp', 'assets/redesign/cursor.webp', 'assets/redesign/laptop.webp', 'assets/redesign/glasses.webp', 'assets/redesign/keyboard.webp', 'assets/og-cover.png', 'assets/og-cover-ru.png', 'assets/fonts/manrope-latin.woff2', 'assets/fonts/manrope-cyrillic.woff2', 'sitemap.xml', 'robots.txt']) {
   assert.ok((await stat(join(root, asset))).size > 0, asset)
 }
 const entries = await readdir(root, { recursive: true })

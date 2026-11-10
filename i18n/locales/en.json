@@ -163,5 +163,67 @@
     "eventmatchJazz": "An evening of jazz",
     "eventmatchExhibition": "A new perspective",
     "eventmatchCalendar": "Calendar"
+  },
+  "redesign": {
+    "menu": {
+      "open": "Open menu",
+      "close": "Close menu"
+    },
+    "hero": {
+      "available": "Open to remote frontend roles",
+      "eyebrow": "Kuzma Korolev — Frontend Developer",
+      "line1": "From a concept",
+      "line2": "to a working",
+      "line3": "product",
+      "description": "Frontend developer with 3+ years of commercial experience — from interface to production, with a solid understanding of the backend behind it",
+      "years": "3+ years",
+      "production": "in production",
+      "meta": "frontend · fullstack · since 2023",
+      "location": "remote · UTC+3"
+    },
+    "approach": {
+      "label": "Approach",
+      "line1": "I build web applications",
+      "line2": "in React and Next.js —",
+      "line3": "from interface to production,",
+      "line4": "with the backend in mind",
+      "note": "Frontend-focused, with backend & CI/CD experience. Open to remote frontend roles — full-time or contract"
+    },
+    "projects": {
+      "line1": "selected",
+      "line2": "work"
+    },
+    "websites": {
+      "label": "Websites",
+      "line1": "websites &",
+      "line2": "other work"
+    },
+    "experience": {
+      "line1": "work",
+      "line2": "experience"
+    },
+    "skills": {
+      "line1": "skills",
+      "line2": "& tools"
+    },
+    "about": {
+      "title": "about",
+      "line1": "I enjoy taking a feature",
+      "line2": "from requirements to production:",
+      "line3": "user flow, interface, API —",
+      "line4": "and shipping it",
+      "note": "I use AI tools in my workflow, starting from a clear specification and always reviewing and verifying the result"
+    },
+    "interlude": {
+      "label": "How I work",
+      "line1": "from requirements",
+      "line2": "to production",
+      "note": "Working out the user flow, building the interface, connecting the API and shipping it — starting from a clear specification and always verifying the result"
+    },
+    "contact": {
+      "line1": "let's",
+      "line2": "talk"
+    },
+    "mottoLabel": "Motto, written as code"
   }
 }

@@ -35,7 +35,7 @@ export interface PortfolioLink {
 const profileRu: Profile = {
   name: 'Кузьма Королев',
   role: 'Frontend / Fullstack-разработчик',
-  email: 'kuzma.korolev.94@mail.ru',
+  email: 'korolev.kuzma1@gmail.com',
   telegram: 'https://t.me/jujich',
   github: 'https://github.com/Jujich',
   linkedin: 'https://www.linkedin.com/in/kuzma-korolev-105975441/',
