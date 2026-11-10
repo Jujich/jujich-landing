@@ -1,23 +1,33 @@
 # jujich.dev
 
-Личный сайт-резюме Кузьмы Королева: опыт работы, проекты, стек и контакты. Сайт написан на Nuxt 4 и TypeScript и публикуется как статическая сборка.
+**English** | [Русский](README.ru.md)
 
-Редизайн перенесён из экспорта Claude Design: монохромная палитра с оливковым акцентом, крупная типографика, карточки в форме папок и адаптивная мобильная навигация. Анимации при прокрутке учитывают настройку уменьшения движения; содержание остаётся доступным без JavaScript.
+Kuzma Korolev's personal portfolio and résumé website, built with Nuxt 4 and TypeScript and generated as a static site. It presents selected projects, work experience, skills, education, and contact information.
 
-Английская версия открывается по умолчанию на `/`, русская — на `/ru`. Переключатель EN/RU меняет локализованный маршрут; выбранный язык сохраняется при перезагрузке по этому адресу. Автоматическое перенаправление по языку браузера отключено. Контакты, идентификаторы и порядок общих проектов одинаковы в обеих версиях. EventMatch включён в обе версии; кейс Jujich Services доступен только на английском. Опыт работы в Нижегородском ЦСМ и две ссылки на его сайты включены только в русскую версию.
+**Live website:** [jujich.dev](https://jujich.dev/) · [Russian version](https://jujich.dev/ru)
 
-## Локальная работа
+## Features
 
-Нужны Node.js 24.11 или новее в ветке 24 и npm.
+- English and Russian pages with localized navigation, metadata, and downloadable résumé PDFs.
+- Project cards with expandable case studies and links to public source repositories.
+- A responsive layout with folder-shaped cards, large typography, and an olive accent.
+- Scroll animations that respect reduced-motion preferences; the content remains available without JavaScript.
+- Static generation, canonical URLs, hreflang metadata, a sitemap, and locally hosted fonts.
+
+The current design was adapted from a Claude Design export. English is served at `/` and Russian at `/ru`. The language switch changes the localized URL; automatic browser-language redirects are disabled. EventMatch appears in both languages. Jujich Services appears only in English, while the Nizhny Novgorod CSM experience and related website links appear only in Russian.
+
+## Local development
+
+Use Node.js 24.11 or later in the 24.x release line, and npm.
 
 ```sh
 npm ci
 npm run dev
 ```
 
-Dev-сервер слушает `127.0.0.1`; адрес выводится в терминале.
+The development server listens on `127.0.0.1`; its URL is printed in the terminal.
 
-Проверки и генерация сайта:
+## Checks and static build
 
 ```sh
 npm test
@@ -25,33 +35,51 @@ npm run typecheck
 npm run generate
 ```
 
-`npm run generate` также проверяет готовые HTML обеих локализаций, SEO-метаданные и публичные файлы.
+The generation command also validates both localized HTML pages, SEO metadata, and public assets. The static output is written to `.output/public/`.
 
-Готовые статические файлы находятся в `.output/public/`. Порядок настройки сервера и автоматического выпуска описан отдельно в [DEPLOYMENT.md](DEPLOYMENT.md).
+Server configuration and deployment automation are maintained in the original GitLab repository and are excluded from this GitHub copy.
 
-## Где менять содержание
+## Project structure
 
-- `app/data/profile.ts` — контакты, опыт, образование, навыки и дополнительные ссылки из резюме. Экспорты `profileData`, `experienceData`, `skillsData` и `portfolioLinksData` содержат версии `en` и `ru`.
-- `app/data/projects.ts` — проекты, технические детали, статусы и эксперименты в `projectsData` и `experimentsData`, также с версиями `en` и `ru`. Поле `tier` сохраняет категории данных: `featured`, `supporting` и `landing`. В редизайне основные карточки выводятся в порядке EventMatch, онлайн-школа, CRM, Forma CMS; Jujich Services показывается в блоке экспериментов только на английском, хотя его `tier` остаётся `featured`. `supporting` — компактные описания приложений, `landing` — краткие упоминания сайтов. Необязательный `url` добавляет ссылку из заголовка основной карточки и убирает её дубликат из списка других работ. Сохраняйте различие между реализованным функционалом, прототипом и будущими планами; при изменении фактов общих проектов обновляйте обе языковые версии.
-- `i18n/locales/en.json` и `i18n/locales/ru.json` — словари интерфейса, заголовки, SEO-текст и доступные подписи. Тексты новой композиции находятся в объекте `redesign`.
-- `app/pages/index.vue` — структура страницы, порядок основных проектов, выбор языковых данных, мобильное меню и SEO.
-- `app/components/FolderTab.vue` и `app/components/ProjectFolder.vue` — общий выступ карточки-папки и карточки проектов с раскрываемыми подробностями и ссылками на репозитории.
-- `app/composables/usePortfolioMotion.ts` — появление секций, параллакс, движение строк технологий и контуры карточек; обработчики и наблюдатели обновляются при смене языка и очищаются при размонтировании.
-- `app/components/ProjectVisual.vue` — сохранённые иллюстрации предыдущего дизайна, которые больше не используются на странице. Это схемы интерфейсов, а не скриншоты реальных приложений.
-- `app/assets/css/main.css` — оформление и адаптивные стили.
-- `nuxt.config.ts` — конфигурация Nuxt i18n и статической генерации. Canonical и hreflang создаются через `useLocaleHead`.
-- `public/` — файлы, доступные посетителям напрямую: изображения, шрифты, иконка и PDF. В `public/assets/redesign/` лежат WebP из макета: портрет, курсор, ноутбук, очки и фон клавиатуры; Manrope загружается локально из `public/assets/fonts/`.
+| Path | Purpose |
+| --- | --- |
+| `app/data/profile.ts` | Localized contact details, experience, education, skills, and other portfolio links. |
+| `app/data/projects.ts` | Localized project descriptions, technology stacks, status notes, and experiments. |
+| `i18n/locales/en.json`, `i18n/locales/ru.json` | Interface text, accessible labels, headings, and SEO copy. The current layout uses the `redesign` object. |
+| `app/pages/index.vue` | Page structure, project ordering, locale selection, mobile navigation, and SEO. |
+| `app/components/FolderTab.vue`, `app/components/ProjectFolder.vue` | Folder tabs and project cards with expandable details and repository links. |
+| `app/composables/usePortfolioMotion.ts` | Scroll reveals, parallax, technology strips, and card outlines, with locale-change and unmount cleanup. |
+| `app/assets/css/main.css` | Styling and responsive layouts. |
+| `nuxt.config.ts` | Nuxt, localization, and static generation configuration. |
+| `public/` | Images, fonts, icons, résumé PDFs, and other public assets. |
 
-## Источники и актуальность
+Project data retains the `featured`, `supporting`, and `landing` categories. The main cards are displayed in this order: EventMatch, online learning platform, CRM, and Forma CMS. Jujich Services appears in the English experiments area even though its data category remains `featured`.
 
-Текст подготовлен по предоставленному резюме hh.ru и материалам локальных проектов. `research/` содержит рабочую справку с доказательствами и ограничениями; она не входит в статическую публикацию. Не переносите её содержимое, внутренние пути, приватные адреса или данные доступа в `public/` либо в клиентские данные страницы.
+The optional `url` field links a project title to its live website; `repositoryUrl` adds a source-code link. When updating shared project facts, update both languages and preserve the distinction between implemented features, prototypes, and planned work.
 
-`public/kuzma-korolev-resume-en.pdf` и `public/kuzma-korolev-resume-ru.pdf` — отдельные резюме на английском и русском в стиле сайта. Ссылки в первом экране и подвале скачивают PDF на текущем языке страницы. Английский документ не содержит опыт работы в Нижегородском ЦСМ; в русском он сохранён. При обновлении содержания сверяйте оба PDF с соответствующей языковой версией сайта.
+`ProjectVisual.vue` contains illustrations from the previous design and is no longer rendered on the page. Those illustrations are interface diagrams, not screenshots of the applications. The current design assets are in `public/assets/redesign/`; Manrope fonts are served from `public/assets/fonts/`.
 
-Контактный email `korolev.kuzma1@gmail.com` хранится в общих данных профиля и синхронизирован с текстом и почтовыми ссылками во всех трёх публичных PDF. При смене адреса пересоздавайте резюме генератором.
+## Résumé PDFs
 
-Генератор `scripts/generate-resumes.py` использует общие данные сайта и сокращённые описания для печатной версии. Для запуска нужны Node 24 в `PATH`, Python с `reportlab` и `pypdf`, шрифты Arial и Georgia из macOS (другую папку можно указать через `RESUME_FONT_DIR`). Команда `python3 scripts/generate-resumes.py` создаёт два двухстраничных PDF в `output/pdf/` и копирует их в `public/`. Старый адрес `/kuzma-korolev-resume.pdf` сохранён как копия нового русского резюме. После изменения генератора проверяйте текст и рендер всех четырёх страниц перед коммитом. CI публикует готовые PDF и не требует Python или установленных шрифтов.
+The website provides separate English and Russian résumés:
 
-Внешние ссылки перенесены из резюме и могут устаревать. Исторический запуск проекта не означает постоянную доступность его текущей версии. При обновлении кейсов проверяйте статусы и не добавляйте неподтверждённые показатели пользователей, выручки или эффективности.
+- [`public/kuzma-korolev-resume-en.pdf`](public/kuzma-korolev-resume-en.pdf)
+- [`public/kuzma-korolev-resume-ru.pdf`](public/kuzma-korolev-resume-ru.pdf)
 
-Учётные данные хранятся отдельно в исключённом из Git каталоге `.credentials/`. Они не нужны для разработки интерфейса и не должны попадать в сборку.
+The hero and footer download the PDF for the current page language. The older `kuzma-korolev-resume.pdf` URL remains a copy of the Russian version. The English résumé omits the CSM experience; the Russian version retains it.
+
+To regenerate the PDFs, use Node.js 24, Python with `reportlab` and `pypdf`, and the Arial and Georgia fonts supplied with macOS. Set `RESUME_FONT_DIR` to use a different font directory.
+
+```sh
+python3 scripts/generate-resumes.py
+```
+
+The script reads shared site data, generates two two-page PDFs in `output/pdf/`, and copies them into `public/`. After changing résumé content or the generator, inspect the text and rendered layout of all four pages. The checked-in PDFs allow the usual website build to run without Python or system fonts.
+
+The contact email is stored in the shared profile data and synchronized with text and mail links in all three public PDFs. Regenerate the résumés when changing it.
+
+## Content maintenance
+
+Project descriptions were prepared from the owner's résumé and local project materials. Working research notes are excluded from Git and the static output. Keep private addresses, credentials, and internal notes out of `public/` and client-side data.
+
+External links and project availability can change. A past launch does not establish current availability, and project updates should not introduce unverified usage, revenue, or performance claims. Credentials are kept separately and are not required to develop this website.

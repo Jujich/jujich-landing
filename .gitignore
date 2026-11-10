@@ -13,3 +13,17 @@ coverage/
 research/
 output/
 tmp/
+
+# Deployment configuration is maintained only in GitLab.
+.gitlab-ci.yml
+.gitlab/
+.github/workflows/
+ops/
+deploy/
+DEPLOYMENT.md
+Dockerfile*
+.dockerignore
+docker-compose*.yml
+docker-compose*.yaml
+compose*.yml
+compose*.yaml
