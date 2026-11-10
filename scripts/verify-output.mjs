@@ -46,7 +46,7 @@ for (const [file, language, title, canonical] of [
     assert.doesNotMatch(experience, /Vite|\b(?:15|5)\b|3[×x]/i, `${file}: Vite achievement excluded from Russian`)
   }
 }
-for (const asset of ['kuzma-korolev-resume-en.pdf', 'kuzma-korolev-resume-ru.pdf', 'assets/portrait-upscaled.png', 'assets/redesign/portrait.webp', 'assets/redesign/cursor.webp', 'assets/redesign/laptop.webp', 'assets/redesign/glasses.webp', 'assets/redesign/keyboard.webp', 'assets/og-cover.png', 'assets/og-cover-ru.png', 'assets/fonts/manrope-latin.woff2', 'assets/fonts/manrope-cyrillic.woff2', 'sitemap.xml', 'robots.txt']) {
+for (const asset of ['kuzma-korolev-resume-en.pdf', 'kuzma-korolev-resume-ru.pdf', 'assets/portrait-upscaled.png', 'assets/redesign/portrait.webp', 'assets/redesign/cursor.png', 'assets/redesign/cursor.webp', 'assets/redesign/laptop.webp', 'assets/redesign/glasses.webp', 'assets/redesign/keyboard.webp', 'assets/og-cover.png', 'assets/og-cover-ru.png', 'assets/fonts/manrope-latin.woff2', 'assets/fonts/manrope-cyrillic.woff2', 'sitemap.xml', 'robots.txt']) {
   assert.ok((await stat(join(root, asset))).size > 0, asset)
 }
 const entries = await readdir(root, { recursive: true })

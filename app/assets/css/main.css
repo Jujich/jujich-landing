@@ -162,9 +162,11 @@ html.scrolled .site-header{height:var(--hs);margin-bottom:calc(var(--hh) - var(-
 .statement-text .l2{padding-left:12%}
 .statement-text .l3{padding-left:4%;color:var(--soft)}
 .statement-text .l4{padding-left:22%;color:var(--soft)}
-.statement-cursor{position:relative;padding:10px 6% 40px;transform:translateY(var(--py,0px))}
-.statement-cursor:after{content:"";position:absolute;left:18%;right:12%;bottom:6px;height:22px;border-radius:50%;background:radial-gradient(closest-side,rgba(20,21,19,.18),rgba(20,21,19,0))}
-.statement-cursor img{position:relative;z-index:1;width:100%;transform:rotate(-10deg);filter:drop-shadow(0 26px 30px rgba(20,21,19,.18))}
+.statement-cursor{position:relative;isolation:isolate;overflow:visible;padding:10px 6% 40px;transform:translateY(var(--py,0px))}
+.statement-cursor:before,.statement-cursor:after{content:"";position:absolute;z-index:0;pointer-events:none}
+.statement-cursor:before{inset:-12% -24% -8%;background:radial-gradient(ellipse at 50% 58%,rgba(20,21,19,.09) 0%,rgba(20,21,19,.04) 34%,rgba(20,21,19,0) 70%)}
+.statement-cursor:after{left:10%;right:4%;bottom:2px;height:30px;background:radial-gradient(ellipse closest-side,rgba(20,21,19,.19) 0%,rgba(20,21,19,.07) 42%,rgba(20,21,19,0) 100%)}
+.statement-cursor img{position:relative;z-index:1;width:100%;transform:rotate(-10deg)}
 @keyframes hover-y{50%{transform:rotate(-10deg) translateY(-10px)}}
 .statement-foot{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px;margin-top:72px;align-items:end}
 .statement-foot .comment{grid-column:8 / span 5}
@@ -188,7 +190,7 @@ html.scrolled .site-header{height:var(--hs);margin-bottom:calc(var(--hh) - var(-
 .folder{--fc:var(--paper-2);--tab-h:52px;position:relative;display:flex;flex-direction:column;transition:--fc .45s var(--ease)}
 .folder-body{background:var(--fc);border-radius:24px 24px 0 24px;padding:34px 34px 30px;flex:1;display:grid;gap:14px;align-content:start}
 .folder-tab{align-self:flex-end;display:flex;height:var(--tab-h);margin-top:-1px;max-width:100%}
-.folder-notch{width:60px;height:calc(100% + 1px);fill:var(--fc);display:block;flex:none;margin-top:-1px}
+.folder-notch{width:60px;height:calc(100% + 1px);fill:var(--fc);display:block;flex:none;margin-top:-1px;overflow:visible}
 .folder-label{background:var(--fc);border-radius:0 0 22px 0;padding:0 24px 0 4px;display:flex;align-items:center;gap:14px;font-size:13px;font-weight:600;color:var(--ink);white-space:nowrap;min-width:0}
 .folder-label-empty{width:140px}
 .folder-label em{font-style:normal;color:var(--olive)}

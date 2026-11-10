@@ -118,7 +118,7 @@ useSeoMeta({
 
       <section id="approach" class="statement wrap" :aria-label="t('redesign.approach.label')">
         <div class="statement-head"><p class="eyebrow"><b>I</b><span class="code">{{ t('redesign.approach.label') }}</span></p><p class="eyebrow"><span class="code">React · Next.js · TypeScript</span></p></div>
-        <div class="statement-body"><p class="statement-text" data-split><span v-for="line in 4" :key="line" :class="`l${line}`">{{ t(`redesign.approach.line${line}`) }}</span></p><figure class="statement-cursor" aria-hidden="true" data-parallax=".12"><img src="/assets/redesign/cursor.webp" alt="" width="579" height="786" loading="lazy"></figure></div>
+        <div class="statement-body"><p class="statement-text" data-split><span v-for="line in 4" :key="line" :class="`l${line}`">{{ t(`redesign.approach.line${line}`) }}</span></p><figure class="statement-cursor" aria-hidden="true" data-parallax=".12"><img src="/assets/redesign/cursor.png" alt="" width="579" height="786" loading="lazy"></figure></div>
         <div class="statement-foot"><ul class="stack-line" :aria-label="t('projects.technologies')" data-reveal><li v-for="(tech, index) in ['React', 'Next.js', 'TypeScript', 'Vue / Nuxt', 'NestJS', 'CI/CD']" :key="tech" :class="{ accent: index < 2 }">{{ tech }}</li></ul><p class="comment" data-reveal>{{ t('redesign.approach.note') }}</p></div>
       </section>
 
