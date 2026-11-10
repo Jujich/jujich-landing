@@ -40,6 +40,7 @@ const projectsRu: Project[] = [
   },
   {
     id: 'forma', tier: 'featured', name: 'Forma — CMS с AI-редактором', type: 'CMS / AI / Web', status: 'Локальный MVP', category: ['web'],
+    repositoryUrl: 'https://github.com/Jujich/project-cms-light',
     description: 'CMS для редактирования контента и кода вручную или через диалог с AI. Предпросмотр, история версий и локальная публикация в одном рабочем пространстве.',
     tags: ['Vue 3', 'TypeScript', 'Express 5', 'OpenAI Responses API'],
     task: 'Дать владельцу сайта возможность менять контент, проверять результат и публиковать выбранную версию.',
@@ -117,6 +118,7 @@ export const projectsData: Record<'ru' | 'en', Project[]> = {
     },
     {
       id: 'forma', tier: 'featured', name: 'Forma — CMS with an AI editor', type: 'CMS / AI / Web', status: 'Local MVP', category: ['web'],
+      repositoryUrl: 'https://github.com/Jujich/project-cms-light',
       description: 'A CMS for editing content and code manually or through AI chat. Preview, version history and local publishing in one workspace.',
       tags: ['Vue 3', 'TypeScript', 'Express 5', 'OpenAI Responses API'],
       task: 'Let site owners edit content, review the result and publish the version they choose.',
