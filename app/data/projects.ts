@@ -49,7 +49,7 @@ const projectsRu: Project[] = [
   },
   {
     id: 'crm', tier: 'featured', name: 'CRM для управления продажами', type: 'B2B / Web', status: 'MVP', category: ['web'],
-    repositoryUrl: 'https://github.com/Jujich/CRM',
+    repositoryUrl: 'https://github.com/Jujich/relavika-crm-self-hosted',
     description: 'Лиды, сделки, канбан и командные задачи. От привычного рабочего пространства до интеграции с AI-агентами через MCP.',
     tags: ['Nuxt 4', 'NestJS', 'PostgreSQL', 'MCP / OAuth'],
     task: 'Объединить продажи и командную работу с разграничением данных и прав между компаниями.',
@@ -127,7 +127,7 @@ export const projectsData: Record<'ru' | 'en', Project[]> = {
     },
     {
       id: 'crm', tier: 'featured', name: 'Sales management CRM', type: 'B2B / Web', status: 'MVP', category: ['web'],
-      repositoryUrl: 'https://github.com/Jujich/CRM',
+      repositoryUrl: 'https://github.com/Jujich/relavika-crm-self-hosted',
       description: 'Leads, deals, kanban and team tasks. A familiar workspace with MCP integration for AI agents.',
       tags: ['Nuxt 4', 'NestJS', 'PostgreSQL', 'MCP / OAuth'],
       task: 'Bring sales and teamwork together while keeping each company’s data and permissions separate.',
